@@ -81,7 +81,8 @@ Commit : `git -c user.name="GuidPilot" -c user.email="guidpilot@gmail.com" commi
 
 ## Programmation Metricool
 
-- Marque `blogId` **7232477**, fuseau `Europe/Paris`, réseau `instagram` uniquement (TikTok = lives, rien à programmer).
+- Marque `blogId` **7232477**, fuseau `Europe/Paris`. Réseaux : `instagram` pour tout ; **chaque Reel est AUSSI publié en YouTube Short** (même post, `providers` = instagram + youtube). TikTok = lives, rien à programmer.
+- YouTube Short : `youtubeData` = `{"title": "<accroche mots-clés, ≤ 90 caractères> #shorts", "type": "short", "privacy": "public", "madeForKids": false, "isAiGeneratedContent": true, "category": "HOWTO_STYLE", "tags": [6–8 mots-clés de niche]}`. Titre orienté recherche (ex. « Logiciel pour tarologue : … »). Le lien n'est pas cliquable dans un Short : « guidpilot.fr » doit rester visible sur l'écran de fin.
 - `createScheduledPost` avec `draft: true` (brouillon : Normane valide) sauf instruction contraire. Reels : `instagramData.type = "REEL"`, `isAiGenerated: true`, `videoCoverMilliseconds` sur une image lisible. Carrousels : `type "POST"`, 7 médias.
 - Erreur « Failed to normalize media » : passagère, réessayer.
 - Avant de programmer, `getScheduledPosts` sur la semaine pour éviter les doublons de créneaux.
