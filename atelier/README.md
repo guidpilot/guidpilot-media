@@ -16,7 +16,7 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 ## Règles vidéo (Reels)
 
 - 1080×1920, 25–40 s, dynamique (captures qui défilent, textes qui arrivent en rythme avec la voix).
-- **Voix off obligatoire** : voix Google Gemini « Nika » générée automatiquement (voir plus bas).
+- **Voix off obligatoire** : voix **ElevenLabs « Claire »** (choisie par Normane le 08/10/2026), générée automatiquement (voir plus bas). Secours automatique : Google Nika.
 - **Musique : aucune, ou très basse** (`data-volume="0.06"` max, pad `reels/ambient30.wav`). La voix doit être parfaitement audible. Voix normalisée : `ffmpeg -i in.wav -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -ac 2 out.wav`.
 - **Mention à l'écran « Voix off générée par IA »** (badge `.aibadge` en haut à gauche, `top:64px`, ne doit chevaucher aucun titre).
 - Écran final : logo + « 14 jours gratuits » + « ✓ Sans carte bancaire » + « Lien en bio · guidpilot.fr ».
@@ -47,23 +47,30 @@ export HYPERFRAMES_BROWSER_PATH=$PRODUCER_HEADLESS_SHELL_PATH
 ```
 Rendu : `cd build/<nom> && npx hyperframes lint && npx hyperframes render --output ../<nom>.mp4` (vérifier avec `npx hyperframes snapshot` + regarder les images).
 
-## Voix off automatique (Gemini TTS via Supabase)
+## Voix off automatique (ElevenLabs « Claire », secours Google Nika)
 
-Le shell ne peut pas joindre Google : on passe par la fonction Supabase **generate-voiceover** (projet `tcxhdtleencjqdphtgqu`),
-qui génère la voix Nika et la dépose directement dans `voix/<nom>.wav` de ce dépôt. Appel via l'outil Supabase `execute_sql` :
+Le shell ne peut pas joindre ElevenLabs ni Google : on passe par la fonction Supabase **generate-voiceover** (projet `tcxhdtleencjqdphtgqu`),
+qui génère la voix et la dépose directement dans `voix/<nom>.mp3` de ce dépôt (`.wav` si le secours Google a été utilisé : le champ `path` de la réponse donne le vrai nom).
+
+- Voix par défaut : **Claire**, `voice` = `6vTyAgAT8PncODBcLjRf`, `provider` = `elevenlabs`, modèle `eleven_multilingual_v2`. Abonnement ElevenLabs Creator (~131 000 crédits/mois ≈ 1 crédit par caractère).
+- **Lancer les générations UNE PAR UNE** (attendre la réponse avant la suivante) : en parallèle, GitHub refuse les écritures simultanées (erreur 409).
+- Quota restant : `body := '{"action":"subscription"}'`.
+
+Appel via l'outil Supabase `execute_sql` :
 
 ```sql
 select net.http_post(
   url := 'https://tcxhdtleencjqdphtgqu.supabase.co/functions/v1/generate-voiceover',
   headers := jsonb_build_object('Content-Type','application/json','x-internal-secret',
     (select decrypted_secret from vault.decrypted_secrets where name='internal_email_secret')),
-  body := jsonb_build_object('path','voix/2026-10-13_mon-theme.wav','text','Texte de la voix off, phrases courtes, vouvoiement.'),
+  body := jsonb_build_object('path','voix/2026-10-13_mon-theme.mp3','text','Texte de la voix off, phrases courtes, vouvoiement.',
+                           'provider','elevenlabs','voice','6vTyAgAT8PncODBcLjRf'),
   timeout_milliseconds := 120000) as id;
 -- attendre ~25 s puis :
 select id, status_code, content from net._http_response where id = <id>;
 ```
-Puis `git pull` pour récupérer le fichier. Synchroniser les animations sur la voix avec
-`ffmpeg -i voix.wav -af silencedetect=noise=-35dB:d=0.25 -f null -` (début de chaque phrase). Un texte de ~70 mots ≈ 25–30 s.
+Puis `git pull` pour récupérer le fichier (convertir en wav pour le montage : `ffmpeg -i voix.mp3 -af loudnorm=I=-15:TP=-1.5:LRA=11 -ar 48000 -ac 2 voix.wav`). Synchroniser les animations sur la voix avec
+`ffmpeg -i voix.wav -af silencedetect=noise=-35dB:d=0.25 -f null -` (début de chaque phrase). Un texte de ~70 mots ≈ 20–25 s avec Claire.
 Ne jamais afficher ni copier les secrets.
 
 ## Hébergement des médias
