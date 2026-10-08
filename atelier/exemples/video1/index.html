@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="vendor/gsap.min.js"></script>
+<style>
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-400-normal.woff2") format("woff2");font-weight:400}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-600-normal.woff2") format("woff2");font-weight:600}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-700-normal.woff2") format("woff2");font-weight:700}
+@font-face{font-family:"Inter";src:url("fonts/inter-latin-800-normal.woff2") format("woff2");font-weight:800}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F6F8FC}
+#root{position:relative;width:100%;height:100%;overflow:hidden;font-family:"Inter",sans-serif;color:#0F172A}
+.clip{position:absolute;inset:0}
+.navy{background:#0F172A}
+.light{background:#F6F8FC}
+.center{position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+/* scene 1 : hook */
+.kicker{font-weight:700;font-size:44px;letter-spacing:.14em;color:#E9C46A;text-transform:uppercase}
+.hook{font-weight:800;font-size:108px;line-height:1.04;color:#fff;letter-spacing:-.02em;margin-top:28px;width:900px}
+.hook b{color:#60A5FA;font-weight:800}
+.chips{position:absolute;left:90px;right:120px;top:980px;height:420px}
+.chip{position:absolute;padding:26px 40px;border-radius:999px;background:#1E293B;border:2px solid #334155;color:#E2E8F0;font-weight:600;font-size:46px;white-space:nowrap}
+.cards{position:absolute;left:0;right:0;top:250px;height:200px}
+.tcard{position:absolute;left:470px;top:0;width:120px;height:190px;border:4px solid #E9C46A;border-radius:16px}
+
+/* scene 2 : logo */
+.logo-big{width:820px;display:block}
+.claim{font-weight:800;font-size:92px;line-height:1.08;color:#fff;margin-top:70px;width:900px;letter-spacing:-.02em}
+.claim span{color:#60A5FA}
+
+/* écrans */
+.stitle{font-weight:800;font-size:82px;line-height:1.08;letter-spacing:-.02em;width:920px}
+.stitle span{color:#2563EB}
+.sub{font-weight:600;font-size:40px;color:#64748B;margin-top:22px;width:900px;line-height:1.3}
+.frame{position:absolute;left:60px;width:960px;background:#fff;border-radius:28px;overflow:hidden;border:2px solid #E2E8F0}
+.bar{height:56px;background:#F1F5F9;border-bottom:2px solid #E2E8F0;display:flex;align-items:center;padding-left:24px;gap:12px}
+.dot{width:16px;height:16px;border-radius:50%;background:#CBD5E1}
+.vp{position:relative;overflow:hidden}
+.shot{position:absolute;left:0;top:0;display:block;max-width:none}
+.demo{position:absolute;right:24px;top:12px;font-size:22px;font-weight:600;color:#64748B;background:#fff;border:2px solid #E2E8F0;border-radius:999px;padding:4px 16px}
+.pill{position:absolute;padding:26px 40px;border-radius:24px;background:#0F172A;color:#fff;font-weight:700;font-size:44px;white-space:nowrap}
+.pill i{font-style:normal;color:#4ADE80;margin-right:16px}
+.badge{display:inline-block;padding:18px 36px;border-radius:999px;font-weight:700;font-size:44px;margin:0 12px}
+.wave{position:absolute;left:150px;width:780px;height:150px;display:flex;align-items:center;justify-content:center;gap:14px}
+.wbar{width:22px;height:120px;border-radius:11px;background:#2563EB}
+.stars{display:flex;gap:22px;justify-content:center}
+.star{width:110px;height:110px}
+
+/* CTA */
+.offer{display:inline-block;background:#FBF3DC;color:#6B4E16;font-weight:700;font-size:38px;padding:16px 36px;border-radius:999px;letter-spacing:.02em}
+.big14{font-weight:800;font-size:200px;line-height:.95;color:#fff;letter-spacing:-.04em;margin-top:40px}
+.big14 small{display:block;font-size:92px;letter-spacing:-.02em;margin-top:12px}
+.nocard{margin-top:44px;font-weight:700;font-size:62px;color:#4ADE80}
+.price{margin-top:44px;font-weight:600;font-size:40px;color:#CBD5E1;line-height:1.45;width:900px}
+.bio{margin-top:60px;display:inline-block;background:#2563EB;color:#fff;font-weight:800;font-size:58px;padding:30px 60px;border-radius:999px}
+.aibadge{position:absolute;left:40px;top:64px;z-index:50;padding:12px 24px;border-radius:999px;background:rgba(15,23,42,.72);color:#E2E8F0;font-family:Inter,sans-serif;font-weight:600;font-size:28px;letter-spacing:.01em;border:1px solid rgba(255,255,255,.25)}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="34.5" data-width="1080" data-height="1920">
+
+  <div class="aibadge">Voix off générée par IA</div>
+  <audio id="voix" src="assets/voix.wav" data-start="0" data-duration="34.5" data-volume="1"></audio>
+
+  <!-- SCENE 1 : accroche -->
+  <div id="s1" class="clip navy" data-start="0" data-duration="6.9" data-track-index="1">
+    <div class="cards">
+      <div class="tcard" id="c1"></div><div class="tcard" id="c2"></div><div class="tcard" id="c3"></div>
+    </div>
+    <div class="center" style="top:520px">
+      <div class="kicker" id="k1">Tarot · Guidance · Médiumnité</div>
+      <div class="hook" id="h1">Votre activité tient dans <b>5 applis</b> ?</div>
+    </div>
+    <div class="chips">
+      <div class="chip" id="ch1" style="left:0;top:0">Agenda</div>
+      <div class="chip" id="ch2" style="left:420px;top:20px">Messagerie</div>
+      <div class="chip" id="ch3" style="left:60px;top:150px">Tableur clients</div>
+      <div class="chip" id="ch4" style="left:560px;top:170px">Paiements</div>
+      <div class="chip" id="ch5" style="left:200px;top:300px">Factures</div>
+    </div>
+  </div>
+
+  <!-- SCENE 2 : logo -->
+  <div id="s2" class="clip navy" data-start="6.9" data-duration="3.4" data-track-index="1">
+    <div class="center" style="top:640px">
+      <img class="logo-big" id="logo2" src="assets/logo_blanc.png" alt="GuidPilot" />
+      <div class="claim" id="claim2">Tout votre cabinet, <span>un seul espace.</span></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3 : tableau de bord -->
+  <div id="s3" class="clip light" data-start="10.3" data-duration="3.5" data-track-index="1">
+    <div class="center" style="top:170px">
+      <div class="stitle" id="t3">Votre journée <span>en un coup d'œil</span></div>
+      <div class="sub" id="u3">Rendez-vous, revenus, avis</div>
+    </div>
+    <div class="frame" id="f3" style="top:560px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="demo">Compte de démonstration</span></div>
+      <div class="vp" style="height:820px"><img class="shot" id="i3" src="assets/dash.png" alt="" style="width:1440px" /></div>
+    </div>
+  </div>
+
+  <!-- SCENE 4 : page publique / réservation -->
+  <div id="s4" class="clip light" data-start="13.8" data-duration="4.2" data-track-index="1">
+    <div class="center" style="top:170px">
+      <div class="stitle" id="t4">Vos clients réservent <span>et paient en ligne</span></div>
+      <div class="sub" id="u4">Depuis votre propre page</div>
+    </div>
+    <div class="frame" id="f4" style="top:560px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="demo">Compte de démonstration</span></div>
+      <div class="vp" style="height:820px"><img class="shot" id="i4" src="assets/page.png" alt="" style="width:1200px" /></div>
+    </div>
+    <div class="pill" id="p4" style="left:150px;top:1290px"><i>✓</i>Rendez-vous réservé et payé</div>
+  </div>
+
+  <!-- SCENE 5 : guidances -->
+  <div id="s5" class="clip light" data-start="18" data-duration="4.9" data-track-index="1">
+    <div class="center" style="top:170px">
+      <div class="stitle" id="t5">Vos guidances, <span>écrites ou vocales</span></div>
+      <div class="sub" id="u5">Livrées dans un espace client sécurisé</div>
+    </div>
+    <div class="frame" id="f5" style="top:520px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="demo">Compte de démonstration</span></div>
+      <div class="vp" style="height:640px"><img class="shot" id="i5" src="assets/guid.png" alt="" style="width:1440px" /></div>
+    </div>
+    <div class="wave" id="w5" style="top:1250px">
+      <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+    </div>
+    <div class="center" style="top:1420px">
+      <div><span class="badge" id="b5a" style="background:#DBEAFE;color:#1D4ED8">Écrite</span><span class="badge" id="b5b" style="background:#0F172A;color:#fff">Vocale</span></div>
+    </div>
+  </div>
+
+  <!-- SCENE 6 : avis -->
+  <div id="s6" class="clip light" data-start="22.9" data-duration="3.7" data-track-index="1">
+    <div class="center" style="top:170px">
+      <div class="stitle" id="t6">Un avis <span>en un clic</span></div>
+      <div class="sub" id="u6">Après chaque séance</div>
+    </div>
+    <div class="frame" id="f6" style="top:600px">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="demo">Compte de démonstration</span></div>
+      <div class="vp" style="height:380px"><img class="shot" id="i6" src="assets/avis.png" alt="" style="width:1440px" /></div>
+    </div>
+    <div class="center" style="top:1150px">
+      <div class="stars">
+        <svg class="star" id="st1" viewBox="0 0 24 24"><path fill="#E9B949" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
+        <svg class="star" id="st2" viewBox="0 0 24 24"><path fill="#E9B949" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
+        <svg class="star" id="st3" viewBox="0 0 24 24"><path fill="#E9B949" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
+        <svg class="star" id="st4" viewBox="0 0 24 24"><path fill="#E9B949" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
+        <svg class="star" id="st5" viewBox="0 0 24 24"><path fill="#E9B949" d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 7 : appel à l'action -->
+  <div id="s7" class="clip navy" data-start="26.6" data-duration="7.9" data-track-index="1">
+    <div class="center" style="top:200px">
+      <img id="logo7" src="assets/logo_blanc.png" alt="GuidPilot" style="width:520px;display:block" />
+    </div>
+    <div class="center" style="top:470px">
+      <div class="offer" id="o7">Essai gratuit</div>
+      <div class="big14" id="b7">14 jours<small>gratuits</small></div>
+      <div class="nocard" id="n7">✓ Sans carte bancaire</div>
+      <div class="bio" id="bio7">Lien dans la bio ↓</div>
+    </div>
+  </div>
+
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+const E = "power3.out";
+
+/* S1 */
+tl.fromTo("#c1",{opacity:0,rotation:0,x:0},{opacity:1,rotation:-14,x:-110,duration:.6,ease:E},0.13);
+tl.fromTo("#c2",{opacity:0,y:30},{opacity:1,y:-10,duration:.6,ease:E},0.19);
+tl.fromTo("#c3",{opacity:0,rotation:0,x:0},{opacity:1,rotation:14,x:110,duration:.6,ease:E},0.25);
+tl.fromTo("#k1",{opacity:0,y:30},{opacity:1,y:0,duration:.5,ease:E},0.32);
+tl.fromTo("#h1",{opacity:0,y:60,scale:.94},{opacity:1,y:0,scale:1,duration:.6,ease:"back.out(1.6)"},0.57);
+["#ch1","#ch2","#ch3","#ch4","#ch5"].forEach((c,i)=>{
+  tl.fromTo(c,{opacity:0,y:-80,scale:.6,rotation:(i%2?8:-8)},{opacity:1,y:0,scale:1,rotation:(i%2?-4:4),duration:.45,ease:"back.out(2)"},2.0+i*.45);
+});
+tl.to(["#ch1","#ch2","#ch3","#ch4","#ch5"],{x:6,duration:.08,yoyo:true,repeat:9,ease:"none"},4.7);
+tl.to(["#ch1","#ch2","#ch3","#ch4","#ch5"],{scale:.2,opacity:0,y:-300,x:0,duration:.45,ease:"power2.in",stagger:.04},6.25);
+
+/* S2 */
+tl.fromTo("#logo2",{opacity:0,scale:.7},{opacity:1,scale:1,duration:.7,ease:"back.out(1.5)"},6.95);
+tl.fromTo("#claim2",{opacity:0,y:50},{opacity:1,y:0,duration:.55,ease:E},7.7);
+
+/* écrans : entrée commune + léger zoom */
+const PAN={3:[0,0,-480,-150],4:[0,0,-240,0],5:[0,0,-480,0],6:[0,0,-480,0]};
+function screen(t0,dur,id){
+  tl.fromTo("#t"+id,{opacity:0,y:40},{opacity:1,y:0,duration:.45,ease:E},t0+.05);
+  tl.fromTo("#u"+id,{opacity:0,y:30},{opacity:1,y:0,duration:.45,ease:E},t0+.2);
+  tl.fromTo("#f"+id,{opacity:0,y:160,scale:.92},{opacity:1,y:0,scale:1,duration:.6,ease:E},t0+.15);
+  const pan=PAN[id]; tl.fromTo("#i"+id,{x:pan[0],y:pan[1]},{x:pan[2],y:pan[3],duration:dur-.3,ease:"sine.inOut"},t0+.3);
+}
+screen(10.3,3.5,3);
+screen(13.8,4.2,4);
+tl.fromTo("#p4",{opacity:0,y:60,scale:.8},{opacity:1,y:0,scale:1,duration:.5,ease:"back.out(1.8)"},15.9);
+screen(18,4.9,5);
+document.querySelectorAll("#w5 .wbar").forEach((b,i)=>{
+  tl.fromTo(b,{scaleY:.15},{scaleY:.25+((i*37)%70)/100,duration:.22,yoyo:true,repeat:7,ease:"sine.inOut"},19.6+i*.03);
+});
+tl.fromTo("#w5",{opacity:0},{opacity:1,duration:.3},19.4);
+tl.fromTo("#b5a",{opacity:0,scale:.6},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},19.9);
+tl.fromTo("#b5b",{opacity:0,scale:.6},{opacity:1,scale:1,duration:.4,ease:"back.out(2)"},20.4);
+screen(22.9,3.7,6);
+["#st1","#st2","#st3","#st4","#st5"].forEach((s,i)=>{
+  tl.fromTo(s,{opacity:0,scale:0,rotation:-40},{opacity:1,scale:1,rotation:0,duration:.35,ease:"back.out(2.4)"},24.0+i*.14);
+});
+
+/* S7 */
+tl.fromTo("#logo7",{opacity:0,y:-30},{opacity:1,y:0,duration:.5,ease:E},26.65);
+tl.fromTo("#o7",{opacity:0,y:20},{opacity:1,y:0,duration:.4,ease:E},26.8);
+tl.fromTo("#b7",{opacity:0,scale:.7},{opacity:1,scale:1,duration:.6,ease:"back.out(1.7)"},26.95);
+tl.fromTo("#n7",{opacity:0,y:30},{opacity:1,y:0,duration:.45,ease:E},29.9);
+tl.fromTo("#bio7",{opacity:0,y:40,scale:.9},{opacity:1,y:0,scale:1,duration:.5,ease:"back.out(2)"},31.1);
+tl.to("#bio7",{scale:1.06,duration:.45,yoyo:true,repeat:5,ease:"sine.inOut"},31.8);
+
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
