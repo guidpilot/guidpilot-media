@@ -17,7 +17,7 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 
 - 1080×1920, 25–40 s, dynamique (captures qui défilent, textes qui arrivent en rythme avec la voix).
 - **Voix off obligatoire** : voix **ElevenLabs « Claire »** (choisie par Normane le 08/10/2026), générée automatiquement (voir plus bas). Secours automatique : Google Nika.
-- **Musique : aucune, ou très basse** (`data-volume="0.06"` max, pad `reels/ambient30.wav`). La voix doit être parfaitement audible. Voix normalisée : `ffmpeg -i in.wav -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -ac 2 out.wav`.
+- **Musique de fond ORIGINALE, audible mais sous la voix** (validé par Normane le 09/10/2026) : après le rendu HyperFrames, remplacer l'audio avec `musique/mixer.sh <video.mp4> <voix.wav> <preset> <sortie.mp4>` (musique composée par `musique/compose.py`, donc sans droits d'auteur ; volume 0.32 + baisse automatique quand la voix parle). Presets : `lofi`, `aube`, `elan`, `cocon`, `pilote` — **varier d'une vidéo à l'autre** (`elan`/`pilote` pour les Reels dynamiques, `aube`/`cocon` pour les sujets calmes, `lofi` polyvalent). Ne jamais utiliser de musique trouvée en ligne. Voix normalisée : `ffmpeg -i in.wav -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -ac 2 out.wav`.
 - **Mention à l'écran « Voix off générée par IA »** (badge `.aibadge` en haut à gauche, `top:64px`, ne doit chevaucher aucun titre).
 - Écran final : logo + « 14 jours gratuits » + « ✓ Sans carte bancaire » + « Lien en bio · guidpilot.fr ».
 - Dans Metricool : `instagramData.isAiGenerated = true` pour chaque Reel.
@@ -93,7 +93,7 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 
 ## Vidéos YouTube longues (1 par jour)
 
-- Format **1920×1080**, 1 min 30 à 3 min, voix Claire, musique 0.05 max, badge « Voix off générée par IA », mention « Compte de démonstration » sur les captures.
+- Format **1920×1080**, 1 min 30 à 3 min, voix Claire, musique originale via `musique/mixer.sh` (même règle que les Reels), badge « Voix off générée par IA », mention « Compte de démonstration » sur les captures.
 - Modèle : `youtube/gen_presentation.py` (sections numérotées : titre à gauche, capture à droite ; intro marine ; fin marine avec « 14 jours gratuits · Sans carte bancaire · guidpilot.fr » + bouton « Abonnez-vous : une vidéo par jour »). Copier/adapter par sujet, caler les temps sur la voix (`silencedetect`, puis estimation par longueur de texte par paragraphe). Ne pas faire défiler une capture au-delà de ses bords (zone vide).
 - Script : 230–420 mots, vouvoiement, un sujet utile au quotidien d'une praticienne (éduquer 35 %, montrer 25 %, raconter 20 %, prouver 10 %, convertir 10 %), fin = invitation à tester + à **s'abonner**.
 - Miniature 1280×720 (fond marine, accroche 3–6 mots en très gros, capture inclinée, logo blanc) → `videoThumbnailUrl`.
