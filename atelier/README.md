@@ -105,7 +105,10 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 - Vidéo de présentation complète (hors rotation quotidienne, demandée par Normane le 10/10/2026 pour YouTube + site) : `youtube/2026-10-10_presentation-complete-guidpilot.mp4` (3 min, `gen_presentation_complete.py`, musique `pilote`), non programmée.
 - Les vidéos poussées doivent faire **moins de 20 Mo** (limite jsDelivr, sinon « Failed to normalize media ») : ré-encoder si besoin avec `ffmpeg -i in.mp4 -c:v libx264 -preset slow -crf 22 -pix_fmt yuv420p -movflags +faststart -c:a copy out.mp4`.
 
-## Images réalistes générées par IA (demandé par Normane le 10/10/2026)
+## Images réalistes générées par IA — EN PAUSE (décision de Normane le 10/10/2026 : « on fait sans pour l'instant »)
+
+- **Ne pas utiliser generate-image ni aucune photo IA** tant que Normane ne l'a pas redemandé. Les images des vidéos sont des scènes dessinées en HTML/SVG dans la charte, plus les captures du compte de démonstration.
+
 
 - Fonction Supabase **generate-image** (projet `tcxhdtleencjqdphtgqu`, source : `atelier/outils/generate-image/index.ts`), même appel que la voix off (`net.http_post` + `x-internal-secret`) avec `body := jsonb_build_object('path','images/<dossier>/<nom>.png','aspect','16:9','model','gemini-3.1-flash-image','prompt','<scène en anglais>')`. L'image est déposée dans `images/` du dépôt (`git pull` ensuite). `{"action":"models"}` liste les modèles disponibles.
 - Style imposé par la fonction : photo réaliste éditoriale, lumière naturelle, intérieur français moderne, touches marine et or, **aucun texte, logo, étoile, cristal ou halo**. Décrire des scènes du quotidien d'une praticienne (bureau, téléphone, carnet, tasse, cliente qui lit sa guidance sur son téléphone…). Jamais de personne réelle identifiable, jamais de faux témoignage.
