@@ -94,6 +94,7 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 ## Vidéos YouTube longues (1 par jour)
 
 - Format **1920×1080**, 1 min 30 à 3 min, voix Claire, musique originale via `musique/mixer.sh` (même règle que les Reels), badge « Voix off générée par IA », mention « Compte de démonstration » sur les captures.
+- ⚠️ **Variété obligatoire (Normane, 10/10/2026)** : lire la section « Consignes de variété » de `youtube/prochains-sujets.md` avant chaque vidéo (mises en scène différentes, images illustrées liées au contexte, ne plus centrer sur l'agenda / la prise de rendez-vous, vouvoiement uniquement, jamais de tutoiement).
 - Modèle : `youtube/gen_presentation.py` (sections numérotées : titre à gauche, capture à droite ; intro marine ; fin marine avec « 14 jours gratuits · Sans carte bancaire · guidpilot.fr » + bouton « Abonnez-vous : une vidéo par jour »). Copier/adapter par sujet, caler les temps sur la voix (`silencedetect`, puis estimation par longueur de texte par paragraphe). Ne pas faire défiler une capture au-delà de ses bords (zone vide).
 - Script : 230–420 mots, vouvoiement, un sujet utile au quotidien d'une praticienne (éduquer 35 %, montrer 25 %, raconter 20 %, prouver 10 %, convertir 10 %), fin = invitation à tester + à **s'abonner**.
 - Miniature 1280×720 (fond marine, accroche 3–6 mots en très gros, capture inclinée, logo blanc) → `videoThumbnailUrl`.
