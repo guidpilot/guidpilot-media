@@ -16,7 +16,7 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 ## Règles vidéo (Reels)
 
 - 1080×1920, 25–40 s, dynamique (captures qui défilent, textes qui arrivent en rythme avec la voix).
-- **Voix off obligatoire** : voix **ElevenLabs « Claire »** (choisie par Normane le 08/10/2026), générée automatiquement (voir plus bas). Secours automatique : Google Nika.
+- **Voix off obligatoire** : voix **ElevenLabs « Claire »** (choisie par Normane le 08/10/2026), générée automatiquement (voir plus bas). Aucune voix Google, même en secours.
 - **Musique de fond ORIGINALE, audible mais sous la voix** (validé par Normane le 09/10/2026) : après le rendu HyperFrames, remplacer l'audio avec `musique/mixer.sh <video.mp4> <voix.wav> <preset> <sortie.mp4>` (musique composée par `musique/compose.py`, donc sans droits d'auteur ; volume 0.32 + baisse automatique quand la voix parle). Presets : `lofi`, `aube`, `elan`, `cocon`, `pilote` — **varier d'une vidéo à l'autre** (`elan`/`pilote` pour les Reels dynamiques, `aube`/`cocon` pour les sujets calmes, `lofi` polyvalent). Ne jamais utiliser de musique trouvée en ligne. Voix normalisée : `ffmpeg -i in.wav -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -ac 2 out.wav`.
 - **Mention à l'écran « Voix off générée par IA »** (badge `.aibadge` en haut à gauche, `top:64px`, ne doit chevaucher aucun titre).
 - Écran final : logo + « 14 jours gratuits » + « ✓ Sans carte bancaire » + « Lien en bio · guidpilot.fr ».
@@ -47,10 +47,11 @@ export HYPERFRAMES_BROWSER_PATH=$PRODUCER_HEADLESS_SHELL_PATH
 ```
 Rendu : `cd build/<nom> && npx hyperframes lint && npx hyperframes render --output ../<nom>.mp4` (vérifier avec `npx hyperframes snapshot` + regarder les images).
 
-## Voix off automatique (ElevenLabs « Claire », secours Google Nika)
+## Voix off automatique (ElevenLabs « Claire » UNIQUEMENT)
 
 Le shell ne peut pas joindre ElevenLabs ni Google : on passe par la fonction Supabase **generate-voiceover** (projet `tcxhdtleencjqdphtgqu`),
-qui génère la voix et la dépose directement dans `voix/<nom>.mp3` de ce dépôt (`.wav` si le secours Google a été utilisé : le champ `path` de la réponse donne le vrai nom).
+qui génère la voix et la dépose directement dans `voix/<nom>.mp3` de ce dépôt.
+- ⚠️ **Décision de Normane (10/10/2026) : ElevenLabs uniquement, jamais la voix Google.** La fonction (v5, source `atelier/outils/generate-voiceover/index.ts`) n'a plus de secours automatique : si ElevenLabs échoue, elle renvoie `tts_failed`. Dans ce cas, ne pas utiliser Google : réessayer une fois plus tard, sinon prévenir Normane.
 
 - Voix par défaut : **Claire**, `voice` = `6vTyAgAT8PncODBcLjRf`, `provider` = `elevenlabs`, modèle `eleven_multilingual_v2`. Abonnement ElevenLabs Creator (~131 000 crédits/mois ≈ 1 crédit par caractère).
 - **Lancer les générations UNE PAR UNE** (attendre la réponse avant la suivante) : en parallèle, GitHub refuse les écritures simultanées (erreur 409).
