@@ -114,3 +114,8 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 - Style imposé par la fonction : photo réaliste éditoriale, lumière naturelle, intérieur français moderne, touches marine et or, **aucun texte, logo, étoile, cristal ou halo**. Décrire des scènes du quotidien d'une praticienne (bureau, téléphone, carnet, tasse, cliente qui lit sa guidance sur son téléphone…). Jamais de personne réelle identifiable, jamais de faux témoignage.
 - ⚠️ État au 10/10/2026 : la clé Google est en offre gratuite, les modèles d'image renvoient « 429 quota exceeded ». Il faut activer la facturation du projet Google AI Studio lié à `GEMINI_API_KEY` (décision de Normane). En attendant : scènes illustrées en HTML/SVG.
 - À l'écran : mention « Images générées par IA » à côté du badge voix (ou badge unique « Voix et images générées par IA ») ; dans Metricool, `isAiGeneratedContent: true` (déjà le cas).
+
+## Reels CONSEILS (13h00, Instagram + YouTube Short)
+
+- Générateur : `reels/gen_conseils.py <clé> <voix.wav>` + textes/scènes dans `reels/conseils_specs.py` (scènes hook / étape numérotée / erreur à éviter / avant-après / bulles / liste / citation / logo ; calage automatique sur la voix). Médias : `AAAA-MM-JJ_au_JJ/conseils/`.
+- Thèmes déjà traités (semaine du 12 au 18/10/2026) : annoncer ses tarifs sans gêne ; annulations et retards ; limites avec une cliente qui écrit à toute heure ; trouver ses premières clientes ; présenter ses prestations clairement ; livrer une guidance de façon professionnelle ; 4 garde-fous contre l'épuisement.
