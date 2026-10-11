@@ -119,3 +119,11 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 
 - Générateur : `reels/gen_conseils.py <clé> <voix.wav>` + textes/scènes dans `reels/conseils_specs.py` (scènes hook / étape numérotée / erreur à éviter / avant-après / bulles / liste / citation / logo ; calage automatique sur la voix). Médias : `AAAA-MM-JJ_au_JJ/conseils/`.
 - Thèmes déjà traités (semaine du 12 au 18/10/2026) : annoncer ses tarifs sans gêne ; annulations et retards ; limites avec une cliente qui écrit à toute heure ; trouver ses premières clientes ; présenter ses prestations clairement ; livrer une guidance de façon professionnelle ; 4 garde-fous contre l'épuisement.
+
+## Reels PROMO (18h00, Instagram + YouTube Short) et carrousels CONSEIL (10h00)
+
+- Ligne éditoriale (Normane, 11/10/2026) : chaque jour 2 contenus conseils (carrousel 10h00, Reel conseil 13h00) + 1 promo (Reel 18h00).
+- Générateur promo : `reels/gen_promos.py <clé> <voix.wav>` + textes/scènes dans `reels/promos_specs.py` (réutilise `gen_conseils.py`, ajoute les scènes `shot` = capture démo avec panoramique, `phone` = téléphone dessiné « Illustration », `myth` = idée reçue / FAUX, extras `button` et `audio`). Captures sans montants : `kit/assets/dash_np.png`, `page_np.png` (prix floutés).
+- Carrousels de la semaine : `carrousels/gen_semaine_AAAA-MM-JJ.py` (réutilise `gen_carrousels.py`, insécables automatiques avant « : ? ! » »). Légendes, titres YouTube et payloads Metricool : `posts_AAAA-MM-JJ.py <SHA>`.
+- Semaine du 12 au 18/10/2026 — carrousels conseil : bio Instagram (5 éléments) ; checklist des 10 minutes avant une séance ; 5 messages prêts à copier pour vos clientes ; visio aussi chaleureuse qu'en cabinet ; notes de séance (quoi écrire / éviter) ; 5 chiffres à regarder chaque mois ; routine du dimanche (préparer sa semaine en 15 min).
+- Semaine du 12 au 18/10/2026 — Reels promo : tableau de bord en 30 s (aube) ; rappel de paiement en un clic (lofi) ; le chemin d'un avis client (elan) ; annuaire GuidPilot / être trouvée (pilote) ; espace client vu par la cliente (cocon) ; factures automatiques (lofi) ; 4 idées reçues vrai/faux (elan).
