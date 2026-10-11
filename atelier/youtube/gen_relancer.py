@@ -1,5 +1,5 @@
 """Vidéo YouTube 1920x1080 : « Relancer une cliente sans paraître insistante » (conseil).
-Usage : python3 gen_relancer.py <voix.wav>  -> build/yt-relancer/
+Usage : python3 gen_relancer.py <voix.wav> [social]  -> build/yt-relancer/ (ou build/yt-relancer-social/ : fin « Lien en bio » pour Instagram/TikTok)
 Temps calés sur voix/2026-10-11_yt-relancer-cliente.mp3 (117,1 s) avec silencedetect.
 Scènes : téléphone à notifications, citation en grand, frise, avant/après en écran partagé,
 liste à cocher, bulles de conversation, illustration du bouton de rappel, capture avis, récap, fin.
@@ -333,7 +333,10 @@ tl.set({hidden!r},{{opacity:0}},0);
 window.__timelines["main"]=tl;
 </script></body></html>'''
 
-d = ATELIER / "build" / "yt-relancer"
+SOCIAL = len(sys.argv) > 2 and sys.argv[2] == "social"
+if SOCIAL:
+    html = html.replace('<i></i>Abonnez-vous : une vidéo par jour', 'Lien en bio · Suivez-nous pour d\'autres conseils')
+d = ATELIER / "build" / ("yt-relancer-social" if SOCIAL else "yt-relancer")
 if d.exists(): shutil.rmtree(d)
 (d / "assets").mkdir(parents=True)
 for sub in ("fonts", "vendor"): shutil.copytree(KIT / sub, d / sub)
