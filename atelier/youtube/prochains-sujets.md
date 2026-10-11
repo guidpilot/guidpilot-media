@@ -23,7 +23,7 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
 
 ## Sujets suivants (proposés le 10/10/2026 à la demande de Normane, à traiter dans l'ordre)
 
-- [ ] **[conseil] Relancer une cliente sans paraître insistante : paiement en attente, avis, nouvelle séance**
+- [x] **[conseil] Relancer une cliente sans paraître insistante : paiement en attente, avis, nouvelle séance** — traité le 2026-10-11 (`youtube/2026-10-11_relancer-cliente-sans-insister.mp4` ; bouton « Envoyer un rappel de paiement » vérifié : RPC en base, commit Lovable 103db34 du 01/10, site publié depuis)
   - Conseils utiles même sans GuidPilot : quand relancer, combien de fois, le ton (exemples de messages courts, vouvoiement), ce qu'il ne faut pas faire (relances en rafale, culpabiliser, cadeau contre un avis).
   - Images : téléphone avec notifications, message trop insistant barré vs message bien tourné.
   - Fin : avec GuidPilot, rappel de paiement en un clic depuis le rendez-vous (vérifier avant dans Supabase/Lovable que le bouton « Envoyer un rappel de paiement » est bien en ligne sur guidpilot.fr ; sinon ne pas le citer) et relance de la demande d'avis.
