@@ -21,6 +21,8 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
 4. **On peut dire que GuidPilot évolue** (« GuidPilot s'améliore chaque semaine grâce aux retours des praticiennes »), en citant uniquement des améliorations déjà en ligne. Jamais de fonction future précise, jamais de date, jamais de prix, jamais de V2, jamais de chatbot ni de publication automatique sur les réseaux.
 5. Garder l'alternance : environ 2 vidéos conseil pour 1 tuto/promo.
 
+> **12/10/2026 — Normane : toutes les prochaines vidéos s'adressent aux praticiennes en guidance ET aux thérapeutes en même temps** (voir README, section Cible). Adapter chaque sujet ci-dessous pour parler aux deux publics.
+
 ## Sujets suivants (proposés le 10/10/2026 à la demande de Normane, à traiter dans l'ordre)
 
 - [x] **[conseil] Relancer une cliente sans paraître insistante : paiement en attente, avis, nouvelle séance** — traité le 2026-10-11 (`youtube/2026-10-11_relancer-cliente-sans-insister.mp4` ; bouton « Envoyer un rappel de paiement » vérifié : RPC en base, commit Lovable 103db34 du 01/10, site publié depuis)
