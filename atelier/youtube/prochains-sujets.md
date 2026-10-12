@@ -30,9 +30,14 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
 - [x] **[tuto] Le tableau de bord GuidPilot : savoir où en est votre activité en 30 secondes** — traité le 2026-10-12 (`youtube/2026-10-12_tableau-de-bord-guidpilot.mp4`, `gen_tableau_de_bord.py`, musique `lofi`)
   - Rendez-vous du jour, guidances à livrer, revenus du mois, montant à encaisser, nombre de factures, note moyenne, actions rapides ; puis la fiche cliente avec son historique (séances, paiements, échanges).
   - Gros plans zoomés sur chaque carte de `dash.png` (pas toute la capture en continu), scène « le matin avec un café » en ouverture.
+- [ ] **[thérapeutes · conseil] Sophrologue, hypnothérapeute, praticienne Reiki : 5 tâches administratives à ne plus faire le soir** (demandé par Normane le 12/10/2026 — à traiter EN PREMIER)
+  - Confirmer et rappeler les rendez-vous, suivre les paiements, préparer les factures, retrouver les notes de la dernière séance, gérer les annulations de dernière minute. Conseils concrets valables même sans outil, puis comment GuidPilot les automatise (réservation et paiement en ligne, fiche cliente avec historique et notes privées, factures automatiques, espace client avec compte rendu de séance).
+  - Titre orienté recherche (ex. « Logiciel pour sophrologue et thérapeute : 5 tâches à ne plus faire à la main »). Respecter la conformité « Thérapeutes » du README (aucun vocabulaire médical, aucune promesse de santé).
 - [ ] **[conseil] Fidéliser ses clientes en guidance : 5 habitudes pour qu'elles reviennent**
   - Suivi après la séance, livrer la guidance dans un endroit qu'elle retrouve, proposer une suite adaptée sans forcer, se souvenir de son historique, demander son avis.
   - Fin : avec GuidPilot, la cliente retrouve tout dans son espace et peut reprendre rendez-vous elle-même depuis son espace client.
+- [ ] **[thérapeutes · tuto] Thérapeute : organiser le suivi de vos clients sur plusieurs séances**
+  - Fiche cliente et historique des séances, notes privées jamais visibles par la cliente, compte rendu de séance livré dans l'espace client, reprise de rendez-vous par la cliente depuis son espace, demande d'avis après un cycle de séances. Même règles de conformité.
 - [ ] **[tuto] L'espace client vu par votre cliente**
   - Point de vue de la cliente (scène : elle ouvre son espace sur son téléphone) : ses rendez-vous, ses guidances écrites et vocales, ses factures, la messagerie, et « Prendre un nouveau rendez-vous » depuis son espace. Rappeler que les notes personnelles de la praticienne ne sont jamais visibles.
   - Pas de capture de l'espace client dans le kit : faire une illustration marquée « Illustration », ou demander une capture à Normane.
