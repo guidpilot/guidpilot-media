@@ -27,7 +27,7 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
   - Conseils utiles même sans GuidPilot : quand relancer, combien de fois, le ton (exemples de messages courts, vouvoiement), ce qu'il ne faut pas faire (relances en rafale, culpabiliser, cadeau contre un avis).
   - Images : téléphone avec notifications, message trop insistant barré vs message bien tourné.
   - Fin : avec GuidPilot, rappel de paiement en un clic depuis le rendez-vous (vérifier avant dans Supabase/Lovable que le bouton « Envoyer un rappel de paiement » est bien en ligne sur guidpilot.fr ; sinon ne pas le citer) et relance de la demande d'avis.
-- [ ] **[tuto] Le tableau de bord GuidPilot : savoir où en est votre activité en 30 secondes**
+- [x] **[tuto] Le tableau de bord GuidPilot : savoir où en est votre activité en 30 secondes** — traité le 2026-10-12 (`youtube/2026-10-12_tableau-de-bord-guidpilot.mp4`, `gen_tableau_de_bord.py`, musique `lofi`)
   - Rendez-vous du jour, guidances à livrer, revenus du mois, montant à encaisser, nombre de factures, note moyenne, actions rapides ; puis la fiche cliente avec son historique (séances, paiements, échanges).
   - Gros plans zoomés sur chaque carte de `dash.png` (pas toute la capture en continu), scène « le matin avec un café » en ouverture.
 - [ ] **[conseil] Fidéliser ses clientes en guidance : 5 habitudes pour qu'elles reviennent**
