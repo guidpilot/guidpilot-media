@@ -105,7 +105,7 @@ def scene(i, sc, t0, t1):
         at = t0 + sc.get("ext", 1.2)
         if ex[0] == "button":
             extra = (f'<div class="btncard" id="{sid}c"><div class="lab">{ex[1]}</div><div class="bigbtn" id="{sid}b">{ex[2]}</div>'
-                     f'<div class="cursor" id="{sid}u" style="left:640px;top:250px"></div><div class="sent" id="{sid}ok">✓ Rappel envoyé</div></div>')
+                     f'<div class="cursor" id="{sid}u" style="left:640px;top:{150 if len(ex) > 3 else 250}px"></div><div class="sent" id="{sid}ok">{ex[3] if len(ex) > 3 else "✓ Rappel envoyé"}</div></div>')
             a(f"#{sid}c", "{opacity:0,y:80}", "{opacity:1,y:0,duration:.5}", at)
             a(f"#{sid}u", "{opacity:0,x:200,y:160}", "{opacity:1,x:0,y:0,duration:.8}", at + .7)
             js.append(f'tl.to("#{sid}b",{{scale:.94,duration:.12,yoyo:true,repeat:1}},{round(at+1.6,2)});')
