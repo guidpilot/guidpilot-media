@@ -21,7 +21,7 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
 4. **On peut dire que GuidPilot évolue** (« GuidPilot s'améliore chaque semaine grâce aux retours des praticiennes »), en citant uniquement des améliorations déjà en ligne. Jamais de fonction future précise, jamais de date, jamais de prix, jamais de V2, jamais de chatbot ni de publication automatique sur les réseaux.
 5. Garder l'alternance : environ 2 vidéos conseil pour 1 tuto/promo.
 
-> **12/10/2026 — Normane : toutes les prochaines vidéos s'adressent aux praticiennes en guidance ET aux thérapeutes en même temps** (voir README, section Cible). Adapter chaque sujet ci-dessous pour parler aux deux publics.
+> **13/10/2026 — Normane : une vidéo = un seul public, en alternance par jour** : lundi, mercredi, vendredi, dimanche = praticiennes en guidance ; mardi, jeudi, samedi = thérapeutes (voir README, section Cible). Si le premier sujet non coché ne correspond pas au public du jour, l'adapter à ce public (ou prendre le suivant qui correspond).
 
 ## Sujets suivants (proposés le 10/10/2026 à la demande de Normane, à traiter dans l'ordre)
 
