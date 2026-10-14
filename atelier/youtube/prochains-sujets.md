@@ -35,7 +35,7 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
 - [x] **[thérapeutes · conseil] Sophrologue, hypnothérapeute, praticienne Reiki : 5 tâches administratives à ne plus faire le soir** (demandé par Normane le 12/10/2026) — traité le 2026-10-13 (`youtube/2026-10-13_therapeutes-5-taches-soir.mp4`, `gen_therapeutes_soir.py`, musique `cocon`)
   - Confirmer et rappeler les rendez-vous, suivre les paiements, préparer les factures, retrouver les notes de la dernière séance, gérer les annulations de dernière minute. Conseils concrets valables même sans outil, puis comment GuidPilot les automatise (réservation et paiement en ligne, fiche cliente avec historique et notes privées, factures automatiques, espace client avec compte rendu de séance).
   - Titre orienté recherche (ex. « Logiciel pour sophrologue et thérapeute : 5 tâches à ne plus faire à la main »). Respecter la conformité « Thérapeutes » du README (aucun vocabulaire médical, aucune promesse de santé).
-- [ ] **[conseil] Fidéliser ses clientes en guidance : 5 habitudes pour qu'elles reviennent**
+- [x] **[conseil] Fidéliser ses clientes en guidance : 5 habitudes pour qu'elles reviennent** — traité le 2026-10-14 (`youtube/2026-10-14_fideliser-clientes-guidance.mp4`, `gen_fideliser_guidance.py`, musique `aube`, public guidance)
   - Suivi après la séance, livrer la guidance dans un endroit qu'elle retrouve, proposer une suite adaptée sans forcer, se souvenir de son historique, demander son avis.
   - Fin : avec GuidPilot, la cliente retrouve tout dans son espace et peut reprendre rendez-vous elle-même depuis son espace client.
 - [ ] **[thérapeutes · tuto] Thérapeute : organiser le suivi de vos clients sur plusieurs séances**
