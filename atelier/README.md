@@ -43,6 +43,10 @@ Décidée avec Normane le 15/10/2026 après analyse Metricool : ~22 abonnés, po
 ### Boucle d'amélioration (chaque dimanche)
 Avant de produire la semaine, lire les statistiques Metricool des 14 derniers jours (Reels : vues, portée, temps moyen, taux de vue > 3 s, partages, enregistrements ; posts : portée, enregistrements). Noter dans le dossier de la semaine (`bilan.md`) les 2 meilleurs et les 2 moins bons contenus, et refaire les formats / types d'accroche qui ont le mieux marché.
 
+### Générateurs V2
+- Reels : `reels/gen_v2.py <clé> <voix.wav>` (scènes `hook2` = phrase-choc lisible dès la frame 0, `save` = fin courte « Enregistrez-la » ou `kw` « Commentez MOT-CLÉ », + scènes de `gen_conseils.py`). Exemple validable : `test-3-phrases` (25 s).
+- Carrousels : `carrousels/gen_v2_test.py` (couverture sans logo, second hook, récap à enregistrer, question finale). Modèle à copier pour chaque semaine.
+
 ### Contenu incarné (optionnel, proposé à Normane)
 Chaque semaine, proposer dans le récapitulatif **1 script de Reel de 20 s à tourner face caméra par Normane** (téléphone, lumière naturelle), avec l'accroche, 3 phrases et la fin. Les comptes qui montrent un vrai visage sont mieux diffusés que les vidéos 100 % animées.
 
