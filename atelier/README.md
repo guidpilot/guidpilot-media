@@ -1,7 +1,52 @@
 # Atelier GuidPilot — production hebdomadaire Instagram
 
-Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le lot de la semaine :
-**14 posts Instagram (2 par jour, 10h et 18h, du lundi au dimanche)**, soit 7 Reels vidéo avec voix off et 7 carrousels.
+Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le lot de la semaine.
+
+## ⭐ LIGNE ÉDITORIALE V2 — en vigueur depuis le 15/10/2026 (PRIORITAIRE sur tout le reste de ce fichier)
+
+Décidée avec Normane le 15/10/2026 après analyse Metricool : ~22 abonnés, portée moyenne 9 personnes par Reel et 5 par post, 2 à 10 s de visionnage moyen, 0 partage et 0 enregistrement, 4 à 5 posts par jour dont des doublons. Diagnostic : trop de volume, trop de pub, accroches trop lentes, contenus répétés. **Moins, mieux, plus utile.**
+
+### Planning (remplace 10h / 13h / 15h / 18h)
+| Jour | Public | Heure | Format | Type |
+|---|---|---|---|---|
+| Lundi | guidance | 12h30 | Reel (+ Short YouTube) | CONSEIL |
+| Mardi | thérapeutes | 12h30 | Carrousel 8–10 slides | CONSEIL |
+| Mercredi | guidance | 12h30 | Reel (+ Short) | PROMO douce (démo d'une vraie fonction) |
+| Jeudi | thérapeutes | 12h30 | Reel (+ Short) | CONSEIL |
+| Vendredi | guidance | 12h30 | Carrousel 8–10 slides | CONSEIL |
+| Samedi | thérapeutes | 12h30 | Reel (+ Short) | PROMO douce |
+| Dimanche | — | — | pas de post (repos, stories seulement) | — |
+
+- **6 posts par semaine, 1 par jour maximum, 4 conseils pour 2 promos, en alternance.** Jamais deux posts le même jour (sauf rappel de jeu-concours explicitement prévu).
+- YouTube longue : **2 par semaine** (mardi thérapeutes, vendredi guidance, 18h30), plus soignées.
+- **Interdit de republier** un contenu déjà publié (même vidéo, même carrousel ou même légende) : Instagram pénalise les doublons. Vérifier dans Metricool les 30 derniers jours avant de programmer.
+- Pendant un jeu-concours : le créneau PROMO du mercredi ou du samedi peut devenir un rappel concours ; jamais un post de plus par jour.
+
+### Style des Reels (remplace « 25–40 s »)
+- **15 à 30 secondes.** Une seule idée par Reel.
+- **La première seconde décide de tout** : pas de logo, pas d'intro, pas de titre de marque. Image 1 = une phrase-choc en très gros (5 à 8 mots) ET la voix commence directement par cette phrase. Formules qui marchent : situation vécue (« Elle annule 10 minutes avant. Encore. »), question qui pique (« Vous annoncez votre prix… et vous baissez les yeux ? »), erreur (« L'erreur qui fait fuir vos clientes »), chiffre concret (« 3 messages à ne plus jamais envoyer »), contre-pied (« Arrêtez de répondre à 23 h »).
+- Rythme : un changement visuel toutes les 1,5 à 2 s, sous-titres gros et centrés dans la zone sûre, phrases courtes à l'oral.
+- Fin courte (2 s max) : sur un CONSEIL → « Enregistrez-le pour plus tard » + question ; sur une PROMO → « Commentez GUIDANCE / THÉRAPEUTE » (Instagram) / « guidpilot.fr » (Short). Plus de grand écran final logo + offre sur les conseils.
+- Badge « Voix off générée par IA » toujours présent, discret (petit, en haut), et `isAiGenerated` / `isAiGeneratedContent` toujours à true.
+- Les PROMOS restent utiles : on part d'un problème réel, on montre la vraie fonction en 2–3 plans, on finit sur le bénéfice. Pas de liste de fonctions.
+
+### Carrousels
+- 8 à 10 slides, format 1080×1350. Slide 1 = accroche forte (promesse claire ou erreur) ; slide 2 = second hook (« La 3 est la plus oubliée ») ; 1 idée par slide ; avant-dernière = récapitulatif à enregistrer ; dernière = question + « Enregistrez ce post ». GuidPilot : une seule mention discrète sur la dernière slide.
+- Formats à faire tourner : messages prêts à copier, erreurs à éviter, checklist, mythe / réalité, avant / après, « ce que vos clientes pensent sans le dire », mini-guide pas à pas.
+
+### Légendes (remplace la section « Légendes Instagram »)
+- Ligne 1 = l'accroche (≤ 125 caractères, avec le mot-clé de la niche). Puis 3 à 5 lignes utiles. Puis une question simple.
+- **CONSEIL** : pas de bloc publicitaire. Terminer par la question + « Enregistrez ce post pour plus tard » + UNE ligne discrète : « Besoin d'un outil pour tout ça ? Commentez GUIDANCE (ou THÉRAPEUTE). »
+- **PROMO** : bloc ManyChat complet (« 📩 Commentez GUIDANCE et recevez en message privé la présentation de GuidPilot : 14 jours gratuits, sans carte bancaire. » + « 👉 Ou lien en bio : guidpilot.fr »).
+- **3 à 5 hashtags** de niche (plus 8–10).
+
+### Boucle d'amélioration (chaque dimanche)
+Avant de produire la semaine, lire les statistiques Metricool des 14 derniers jours (Reels : vues, portée, temps moyen, taux de vue > 3 s, partages, enregistrements ; posts : portée, enregistrements). Noter dans le dossier de la semaine (`bilan.md`) les 2 meilleurs et les 2 moins bons contenus, et refaire les formats / types d'accroche qui ont le mieux marché.
+
+### Contenu incarné (optionnel, proposé à Normane)
+Chaque semaine, proposer dans le récapitulatif **1 script de Reel de 20 s à tourner face caméra par Normane** (téléphone, lumière naturelle), avec l'accroche, 3 phrases et la fin. Les comptes qui montrent un vrai visage sont mieux diffusés que les vidéos 100 % animées.
+
+---
 
 ## Règles de marque (non négociables)
 
@@ -17,7 +62,7 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 
 ## Règles vidéo (Reels)
 
-- 1080×1920, 25–40 s, dynamique (captures qui défilent, textes qui arrivent en rythme avec la voix).
+- 1080×1920, **15–30 s (ligne V2)**, dynamique (captures qui défilent, textes qui arrivent en rythme avec la voix).
 - **Voix off obligatoire** : voix **ElevenLabs « Claire »** (choisie par Normane le 08/10/2026), générée automatiquement (voir plus bas). Aucune voix Google, même en secours.
 - **Musique de fond ORIGINALE, audible mais sous la voix** (validé par Normane le 09/10/2026) : après le rendu HyperFrames, remplacer l'audio avec `musique/mixer.sh <video.mp4> <voix.wav> <preset> <sortie.mp4>` (musique composée par `musique/compose.py`, donc sans droits d'auteur ; volume 0.32 + baisse automatique quand la voix parle). Presets : `lofi`, `aube`, `elan`, `cocon`, `pilote` — **varier d'une vidéo à l'autre** (`elan`/`pilote` pour les Reels dynamiques, `aube`/`cocon` pour les sujets calmes, `lofi` polyvalent). Ne jamais utiliser de musique trouvée en ligne. Voix normalisée : `ffmpeg -i in.wav -af "loudnorm=I=-15:TP=-1.5:LRA=11" -ar 48000 -ac 2 out.wav`.
 - **Mention à l'écran « Voix off générée par IA »** (badge `.aibadge` en haut à gauche, `top:64px`, ne doit chevaucher aucun titre).
@@ -28,7 +73,7 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 
 Chaque légende contient : une accroche avec mots-clés de la niche (1re ligne), le bénéfice concret (liste ✔), l'appel à l'action
 `Testez GuidPilot gratuitement pendant 14 jours, sans carte bancaire.\n👉 Lien en bio : guidpilot.fr`, une question pour les commentaires,
-puis 8 à 10 hashtags ciblés (voir `posts_semaine.py`, jeux `H_GUIDANCE` et `H_BIENETRE`, à faire tourner/varier).
+puis **3 à 5 hashtags (ligne V2 — remplace « 8 à 10 »)** ciblés (voir `posts_semaine.py`, jeux `H_GUIDANCE` et `H_BIENETRE`, à faire tourner/varier).
 
 ## Outils
 
@@ -94,11 +139,11 @@ Commit : `git -c user.name="GuidPilot" -c user.email="guidpilot@gmail.com" commi
 
 Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chevauchement, aucun prix, texte sans faute), vérifier que la voix est audible et la musique quasi inaudible. Pour chaque carrousel : regarder chaque slide. Relire chaque légende (vouvoiement, lien, hashtags, pas de promesse). Puis vérifier dans `getScheduledPosts` que les 14 posts sont bien présents aux bons créneaux.
 
-## Vidéos YouTube longues (1 par jour)
+## Vidéos YouTube longues (2 par semaine depuis le 15/10/2026 : mardi thérapeutes, vendredi guidance)
 
 - Format **1920×1080**, 1 min 30 à 3 min, voix Claire, musique originale via `musique/mixer.sh` (même règle que les Reels), badge « Voix off générée par IA », mention « Compte de démonstration » sur les captures.
 - ⚠️ **Variété obligatoire (Normane, 10/10/2026)** : lire la section « Consignes de variété » de `youtube/prochains-sujets.md` avant chaque vidéo (mises en scène différentes, images illustrées liées au contexte, ne plus centrer sur l'agenda / la prise de rendez-vous, vouvoiement uniquement, jamais de tutoiement).
-- Modèle : `youtube/gen_presentation.py` (sections numérotées : titre à gauche, capture à droite ; intro marine ; fin marine avec « 14 jours gratuits · Sans carte bancaire · guidpilot.fr » + bouton « Abonnez-vous : une vidéo par jour »). Copier/adapter par sujet, caler les temps sur la voix (`silencedetect`, puis estimation par longueur de texte par paragraphe). Ne pas faire défiler une capture au-delà de ses bords (zone vide).
+- Modèle : `youtube/gen_presentation.py` (sections numérotées : titre à gauche, capture à droite ; intro marine ; fin marine avec « 14 jours gratuits · Sans carte bancaire · guidpilot.fr » + bouton « Abonnez-vous : 2 vidéos par semaine »). Copier/adapter par sujet, caler les temps sur la voix (`silencedetect`, puis estimation par longueur de texte par paragraphe). Ne pas faire défiler une capture au-delà de ses bords (zone vide).
 - Script : 230–420 mots, vouvoiement, un sujet utile au quotidien d'une praticienne (éduquer 35 %, montrer 25 %, raconter 20 %, prouver 10 %, convertir 10 %), fin = invitation à tester + à **s'abonner**.
 - Miniature 1280×720 (fond marine, accroche 3–6 mots en très gros, capture inclinée, logo blanc) → `videoThumbnailUrl`.
 - Metricool : provider `youtube`, `youtubeData.type = "video"`, titre ≤ 100 caractères **commençant par la requête recherchée par la niche** (« Logiciel pour tarologue… », « Comment trouver des clients en voyance… »), 12–16 tags, `madeForKids false`, `isAiGeneratedContent true`, `category HOWTO_STYLE`. Description : 2 phrases riches en mots-clés, lien https://guidpilot.fr, appel à s'abonner, **chapitres horodatés (0:00 obligatoire, ≥ 3 chapitres de ≥ 10 s)**, paragraphe de mots-clés naturels, mentions « Captures réalisées sur un compte de démonstration. Voix off générée par IA. », 3–5 hashtags.
@@ -117,14 +162,14 @@ Pour chaque Reel : regarder 4–6 images du rendu (badge IA lisible et sans chev
 - ⚠️ État au 10/10/2026 : la clé Google est en offre gratuite, les modèles d'image renvoient « 429 quota exceeded ». Il faut activer la facturation du projet Google AI Studio lié à `GEMINI_API_KEY` (décision de Normane). En attendant : scènes illustrées en HTML/SVG.
 - À l'écran : mention « Images générées par IA » à côté du badge voix (ou badge unique « Voix et images générées par IA ») ; dans Metricool, `isAiGeneratedContent: true` (déjà le cas).
 
-## Reels CONSEILS (13h00, Instagram + YouTube Short)
+## Reels CONSEILS (ancien créneau 13h00 — remplacé par le planning V2 à 12h30)
 
 - Générateur : `reels/gen_conseils.py <clé> <voix.wav>` + textes/scènes dans `reels/conseils_specs.py` (scènes hook / étape numérotée / erreur à éviter / avant-après / bulles / liste / citation / logo ; calage automatique sur la voix). Médias : `AAAA-MM-JJ_au_JJ/conseils/`.
 - Thèmes déjà traités (semaine du 12 au 18/10/2026) : annoncer ses tarifs sans gêne ; annulations et retards ; limites avec une cliente qui écrit à toute heure ; trouver ses premières clientes ; présenter ses prestations clairement ; livrer une guidance de façon professionnelle ; 4 garde-fous contre l'épuisement.
 
-## Reels PROMO (18h00, Instagram + YouTube Short) et carrousels CONSEIL (10h00)
+## Reels PROMO (ancien 18h00) et carrousels CONSEIL (ancien 10h00) — remplacés par le planning V2 à 12h30
 
-- Ligne éditoriale (Normane, 11/10/2026) : chaque jour 2 contenus conseils (carrousel 10h00, Reel conseil 13h00) + 1 promo (Reel 18h00).
+- ~~Ligne éditoriale (Normane, 11/10/2026) : chaque jour 2 contenus conseils + 1 promo~~ → remplacée le 15/10/2026 par la ligne V2 (6 posts/semaine).
 - Générateur promo : `reels/gen_promos.py <clé> <voix.wav>` + textes/scènes dans `reels/promos_specs.py` (réutilise `gen_conseils.py`, ajoute les scènes `shot` = capture démo avec panoramique, `phone` = téléphone dessiné « Illustration », `myth` = idée reçue / FAUX, extras `button` et `audio`). Captures sans montants : `kit/assets/dash_np.png`, `page_np.png` (prix floutés).
 - Carrousels de la semaine : `carrousels/gen_semaine_AAAA-MM-JJ.py` (réutilise `gen_carrousels.py`, insécables automatiques avant « : ? ! » »). Légendes, titres YouTube et payloads Metricool : `posts_AAAA-MM-JJ.py <SHA>`.
 - Semaine du 12 au 18/10/2026 — carrousels conseil : bio Instagram (5 éléments) ; checklist des 10 minutes avant une séance ; 5 messages prêts à copier pour vos clientes ; visio aussi chaleureuse qu'en cabinet ; notes de séance (quoi écrire / éviter) ; 5 chiffres à regarder chaque mois ; routine du dimanche (préparer sa semaine en 15 min).

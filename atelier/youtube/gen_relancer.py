@@ -238,7 +238,7 @@ body = f'''
     <div class="big14">14 jours gratuits</div>
     <div class="nocard" id="g7">✓ Sans carte bancaire</div>
     <div class="url" id="g8">guidpilot.fr</div>
-    <div class="sub" id="g9"><i></i>Abonnez-vous : une vidéo par jour</div>
+    <div class="sub" id="g9"><i></i>Abonnez-vous : 2 vidéos par semaine</div>
   </div>
 </div>'''
 
@@ -335,7 +335,7 @@ window.__timelines["main"]=tl;
 
 SOCIAL = len(sys.argv) > 2 and sys.argv[2] == "social"
 if SOCIAL:
-    html = html.replace('<i></i>Abonnez-vous : une vidéo par jour', 'Lien en bio · Suivez-nous pour d\'autres conseils')
+    html = html.replace('<i></i>Abonnez-vous : 2 vidéos par semaine', 'Lien en bio · Suivez-nous pour d\'autres conseils')
 d = ATELIER / "build" / ("yt-relancer-social" if SOCIAL else "yt-relancer")
 if d.exists(): shutil.rmtree(d)
 (d / "assets").mkdir(parents=True)

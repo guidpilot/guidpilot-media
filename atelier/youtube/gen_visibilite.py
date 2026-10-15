@@ -166,7 +166,7 @@ body = f'''
     <div class="big14">14 jours gratuits</div>
     <div class="nocard" id="g7">✓ Sans carte bancaire</div>
     <div class="url" id="g8">guidpilot.fr</div>
-    <div class="sub" id="g9"><i></i>Abonnez-vous : une vidéo par jour</div>
+    <div class="sub" id="g9"><i></i>Abonnez-vous : 2 vidéos par semaine</div>
   </div>
 </div>'''
 

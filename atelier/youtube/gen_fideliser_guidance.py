@@ -302,7 +302,7 @@ body += f'''
     <div class="big14">14 jours gratuits</div>
     <div class="nocard hid" id="z7">✓ Sans carte bancaire</div>
     <div class="url hid" id="z8">guidpilot.fr</div>
-    <div class="sub hid" id="z9"><i></i>Abonnez-vous : une vidéo par jour</div>
+    <div class="sub hid" id="z9"><i></i>Abonnez-vous : 2 vidéos par semaine</div>
   </div>
 </div>'''
 js += pop("#qm", 107.55, E) + 'tl.fromTo("#qq",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.7,ease:"back.out(1.5)"},107.65);\n'
