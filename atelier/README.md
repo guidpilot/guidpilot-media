@@ -104,6 +104,7 @@ Le shell ne peut pas joindre ElevenLabs ni Google : on passe par la fonction Sup
 qui génère la voix et la dépose directement dans `voix/<nom>.mp3` de ce dépôt.
 - ⚠️ **Décision de Normane (10/10/2026) : ElevenLabs uniquement, jamais la voix Google.** La fonction (v5, source `atelier/outils/generate-voiceover/index.ts`) n'a plus de secours automatique : si ElevenLabs échoue, elle renvoie `tts_failed`. Dans ce cas, ne pas utiliser Google : réessayer une fois plus tard, sinon prévenir Normane.
 
+- **Prononciation de la marque (Normane, 16/10/2026)** : on doit entendre « Guide Pilote » (guide comme « un guide », pilote à la française), jamais « Gouid-pilot ». La fonction generate-voiceover remplace automatiquement « GuidPilot » par « Guide Pilote » et « guidpilot.fr » par « Guide Pilote point F R » dans le texte lu (l'écran garde l'orthographe officielle « GuidPilot »). Écrire les scripts normalement ; à chaque contrôle final, vérifier à l'écoute que la marque est bien prononcée. Test de référence validé par Normane : `voix/tests/2026-10-16_prononciation-guide-pilote.mp3`.
 - Voix par défaut : **Claire**, `voice` = `6vTyAgAT8PncODBcLjRf`, `provider` = `elevenlabs`, modèle `eleven_multilingual_v2`. Abonnement ElevenLabs Creator (~131 000 crédits/mois ≈ 1 crédit par caractère).
 - **Lancer les générations UNE PAR UNE** (attendre la réponse avant la suivante) : en parallèle, GitHub refuse les écritures simultanées (erreur 409).
 - Quota restant : `body := '{"action":"subscription"}'`.

@@ -18,6 +18,14 @@ const DEFAULT_STYLE = "Native French speaker from France, natural Parisian accen
 const EL = "https://api.elevenlabs.io";
 const DEFAULT_VOICE = "6vTyAgAT8PncODBcLjRf"; // Claire
 
+// Prononciation de la marque (demande de Normane, 16/10/2026) : « Guide Pilote », guide comme « un guide », pas « Gouid pilot ».
+// Appliqué automatiquement au texte envoyé à la voix (jamais au texte affiché à l'écran).
+function prononciation(t: string): string {
+  return t
+    .replace(/\bguid[\s-]?pilote?\.fr\b/gi, "Guide Pilote point F R")
+    .replace(/\bguid[\s-]?pilote?\b/gi, "Guide Pilote");
+}
+
 function json(body: unknown, status = 200) {
   return new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
 }
@@ -136,7 +144,7 @@ Deno.serve(async (req: Request) => {
 
   // --- Génération d'une voix off ---
   if (!ghToken) return json({ error: "missing_secrets", github: false }, 500);
-  const text = typeof body?.text === "string" ? body.text.trim() : "";
+  const text = typeof body?.text === "string" ? prononciation(body.text.trim()) : "";
   let path = typeof body?.path === "string" ? body.path : "";
   if (!text || text.length > 5000 || !/^voix\/[A-Za-z0-9_\-\/]+\.(wav|mp3)$/.test(path)) return json({ error: "invalid_request" }, 400);
   // ElevenLabs par défaut (voix Claire). Gemini uniquement si demandé explicitement avec provider "gemini".
