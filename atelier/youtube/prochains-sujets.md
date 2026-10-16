@@ -40,7 +40,7 @@ Retour de Normane : « on est toujours sur le même écran » et « toujours ax�
   - Fin : avec GuidPilot, la cliente retrouve tout dans son espace et peut reprendre rendez-vous elle-même depuis son espace client.
 - [ ] **[thérapeutes · tuto] Thérapeute : organiser le suivi de vos clients sur plusieurs séances**
   - Fiche cliente et historique des séances, notes privées jamais visibles par la cliente, compte rendu de séance livré dans l'espace client, reprise de rendez-vous par la cliente depuis son espace, demande d'avis après un cycle de séances. Même règles de conformité.
-- [ ] **[tuto] L'espace client vu par votre cliente**
+- [x] **[tuto] L'espace client vu par votre cliente** — traité le 2026-10-16 (`youtube/2026-10-16_espace-client-guidance.mp4`, `gen_espace_client_guidance.py`, musique `lofi`, public guidance ; illustrations marquées « Illustration », aucune capture)
   - Point de vue de la cliente (scène : elle ouvre son espace sur son téléphone) : ses rendez-vous, ses guidances écrites et vocales, ses factures, la messagerie, et « Prendre un nouveau rendez-vous » depuis son espace. Rappeler que les notes personnelles de la praticienne ne sont jamais visibles.
   - Pas de capture de l'espace client dans le kit : faire une illustration marquée « Illustration », ou demander une capture à Normane.
 - [ ] **[conseil] Les erreurs administratives fréquentes des praticiennes indépendantes**
