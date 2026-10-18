@@ -116,6 +116,69 @@ STORIES = [
  ("2026-10-25T12:30:00", "dim-25_1230_mot-cle-guidance"),
 ]
 
+
+# ---- Révision du 18/10/2026 au soir (demande de Normane : varier structures, accroches, contextes, et relier chaque conseil à GuidPilot) ----
+def conseil2(accroche, corps, gp, question, kw, tags):
+    return f"{accroche}\n\n{corps}\n\n{gp}\n\n{question} 👇\n\n🔖 Enregistrez ce post pour plus tard.\nBesoin d'un outil pour tout ça ? Commentez {kw}.\n\n{tags}"
+
+OVERRIDE_TEXT = {
+ "2026-10-19T10:00:00": conseil2(
+   "Et si vos clientes de guidance n'osaient pas vous poser leurs vraies questions ?",
+   "« Combien de temps ça dure ? », « Je pourrai relire tout ça ? », « Je n'ose pas lui réécrire »…\n5 pensées silencieuses de vos clientes, et la phrase simple à leur dire pour chacune.\nUne cliente qui a ses réponses réserve plus sereinement.",
+   "Dans GuidPilot, la durée et le format de chaque prestation s'affichent sur votre page, et la guidance l'attend ensuite dans son espace client.",
+   "Laquelle entendez-vous le plus souvent ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #energeticienne"),
+ "2026-10-19T18:00:00": conseil2(
+   "Vous dites peut-être ces 3 phrases à vos clientes de tarot ou de voyance… sans savoir qu'elles les font fuir.",
+   "« Ça dépend… » quand on vous demande le prix → donnez la durée et le tarif, clairement.\n« Écrivez-moi quand vous voulez » → proposez un lien pour réserver.\nPromettre des réponses → décrivez plutôt comment se passe la séance.",
+   "Dans GuidPilot, votre lien de réservation affiche la durée et le format de chaque séance : plus besoin de « ça dépend ».",
+   "Laquelle avez-vous déjà dite ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #cartomancie"),
+ "2026-10-20T10:00:00": conseil2(
+   "« Revenez quand vous voulez » : la phrase à remplacer pour proposer un suivi sans forcer (sophrologue, Reiki, hypnose).",
+   "4 situations, 4 phrases à changer : à la fin de la première séance, quand elle hésite, avant qu'elle reparte, et à la séance suivante.\nUn cadre clair rassure votre cliente, et elle reste libre à chaque fois.",
+   "Dans GuidPilot, vous planifiez le rendez-vous suivant en un clic, et vos notes de séance restent privées dans sa fiche cliente.",
+   "Comment proposez-vous la séance suivante ?", "THÉRAPEUTE", "#sophrologue #hypnotherapeute #reiki #therapeuteholistique #cabinetbienetre"),
+ "2026-10-20T18:00:00": conseil2(
+   "1 h de séance, presque 2 h de travail : sophrologue, réflexologue, praticienne Reiki, faites le calcul.",
+   "Par exemple : 15 min de messages pour caler le rendez-vous, 5 min de rappel, 15 min d'encaissement et de facture, 10 min de notes.\nLe premier temps à récupérer : les allers-retours. Envoyez votre lien de réservation au lieu de proposer des créneaux.",
+   "Dans GuidPilot, la cliente réserve sur votre page, et la facture se crée toute seule.",
+   "Combien de temps passez-vous autour d'une séance ?", "THÉRAPEUTE", "#sophrologue #reiki #reflexologie #therapeuteholistique #cabinetbienetre"),
+ "2026-10-21T10:00:00": conseil2(
+   "Décembre arrive plus vite qu'on ne croit : la checklist des fêtes pour tarologues, voyantes et médiums.",
+   "Congés, horaires du 24 et du 31, séance à offrir, messages d'absence, planning de janvier.\nPréparer en octobre, c'est vivre décembre plus sereinement, pour vous comme pour vos clientes.",
+   "Dans GuidPilot, vos clientes peuvent offrir une séance en carte cadeau à votre logo, et vos congés se bloquent dans votre agenda.",
+   "Travaillez-vous pendant les fêtes ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #energeticienne"),
+ "2026-10-22T18:00:00": conseil2(
+   "Le téléphone sonne : « Je voulais juste me renseigner… » Sophrologue, hypnothérapeute, voici quoi répondre.",
+   "✖ le réflexe : raconter tout votre parcours\n✔ poser une question : « Qu'est-ce qui vous amène ? »\n✔ expliquer le déroulé en une phrase\n✔ proposer un créneau précis plutôt que « rappelez-moi »",
+   "Dans GuidPilot, si elle préfère réserver plus tard, vous lui envoyez le lien de votre page : elle choisit son créneau seule.",
+   "Que dites-vous, vous, au premier appel ?", "THÉRAPEUTE", "#sophrologue #hypnotherapeute #coachdevie #therapeuteholistique #cabinetbienetre"),
+ "2026-10-23T10:00:00": conseil2(
+   "« Juste une petite question… » : tarologue, voyante, comment répondre sans offrir votre guidance ?",
+   "Ces petites questions par message n'ont ni le cadre ni le temps d'une vraie guidance.\nY répondre gratuitement apprend à vos clientes que votre travail ne se paie pas.\nDans le carrousel : 3 messages prêts à copier, pour une nouvelle cliente, une cliente fidèle, et quand elle insiste.",
+   "Dans GuidPilot, votre page de réservation est le lien à glisser dans chacune de ces réponses.",
+   "Combien de « petites questions » recevez-vous par semaine ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #cartomancie"),
+ "2026-10-23T18:00:00": conseil2(
+   "Une cliente qui revient chaque semaine pour une guidance : bon signe ? Pas forcément.",
+   "Une guidance a besoin de temps pour se vivre. Trop rapprochées, les séances tournent autour de la même question.\nProposez un rythme, avec douceur : « Laissons passer quelques semaines. »",
+   "Dans GuidPilot, ses guidances sont rangées avec leur date : vous voyez tout de suite si elles se rapprochent.",
+   "Quel rythme conseillez-vous à vos clientes ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #energeticienne"),
+ "2026-10-24T10:00:00": conseil2(
+   "Modèle à recopier : la semaine type d'une sophrologue, praticienne Reiki ou réflexologue qui ne déborde plus.",
+   "Des plages de séances fixes, une heure d'administratif par semaine, deux créneaux de réponse par jour, des pauses, un jour vraiment off.\nLe modèle en couleurs est dans le carrousel.",
+   "Dans GuidPilot, vos clientes ne réservent que dans les disponibilités que vous ouvrez : votre semaine type se respecte toute seule.",
+   "Quel bloc vous manque le plus ?", "THÉRAPEUTE", "#sophrologue #reiki #reflexologie #therapeuteholistique #cabinetbienetre"),
+ "2026-10-25T18:00:00": conseil2(
+   "Agenda plein, prix inchangés depuis longtemps ? Tarologue, voyante : 3 signes qu'il est temps d'augmenter vos tarifs.",
+   "1. Votre agenda est plein plusieurs semaines à l'avance.\n2. Vos prix n'ont pas bougé, alors que votre expérience a grandi.\n3. Vous travaillez plus, sans gagner mieux.\nPour le faire : prévenez un mois avant, et gardez l'ancien prix pour les séances déjà réservées.",
+   "Dans GuidPilot, votre tableau de bord suit vos revenus du mois et votre panier moyen.",
+   "À quand remonte votre dernière hausse ?", "GUIDANCE", "#tarologue #voyance #guidance #medium #energeticienne"),
+}
+OVERRIDE_YT = {
+ "2026-10-22T18:00:00": "Sophrologue : que répondre quand une cliente appelle pour se renseigner #shorts",
+ "2026-10-23T18:00:00": "Tarologue : une cliente qui revient chaque semaine, bon signe ? #shorts",
+}
+STORY_TIME = {"08:30": "12:30"}  # stories de 8h30 déplacées à 12h30 (Normane, 18/10/2026)
+
 def offset(dt):  # passage à l'heure d'hiver le dimanche 25/10/2026 à 3 h
     return "+01:00" if dt >= "2026-10-25T03:00:00" else "+02:00"
 
@@ -123,7 +186,7 @@ def payloads():
     for dt, kind, media, text, ytd in POSTS:
         info = {"autoPublish": True, "draft": False, "descendants": [], "firstCommentText": "", "hasNotReadNotes": False,
                 "media": media, "mediaAltText": [], "publicationDate": {"dateTime": dt, "timezone": TZ}, "shortener": False,
-                "smartLinkData": {"ids": []}, "text": text}
+                "smartLinkData": {"ids": []}, "text": OVERRIDE_TEXT.get(dt, text)}
         if kind == "carrousel":
             info["providers"] = [{"network": "instagram"}]
             info["instagramData"] = {"type": "POST", "isAiGenerated": False}
@@ -132,11 +195,12 @@ def payloads():
             info["videoCoverMilliseconds"] = 1500 if kind == "concours" else 500
             if ytd:
                 info["providers"] = [{"network": "instagram"}, {"network": "youtube"}]
-                info["youtubeData"] = ytd
+                info["youtubeData"] = dict(ytd, title=OVERRIDE_YT.get(dt, ytd["title"]))
             else:
                 info["providers"] = [{"network": "instagram"}]
         yield dt + offset(dt), info
     for dt, name in STORIES:
+        dt = dt.replace("T08:30", "T12:30")
         info = {"autoPublish": True, "draft": False, "descendants": [], "firstCommentText": "", "hasNotReadNotes": False,
                 "media": [f"{W}/stories/{name}.jpg"], "mediaAltText": [], "publicationDate": {"dateTime": dt, "timezone": TZ},
                 "shortener": False, "smartLinkData": {"ids": []}, "providers": [{"network": "instagram"}],

@@ -34,6 +34,22 @@ g.CSS += """
 .s.shot{justify-content:flex-start;padding-top:190px}
 .s.shot h2{font-size:68px}
 .s.shot p{font-size:40px;margin-top:26px}
+.think{margin-top:30px;background:#E2E8F0;color:#334155;border-radius:40px 40px 40px 10px;padding:34px 40px;font-weight:600;font-size:46px;line-height:1.35;font-style:italic}
+.say{margin-top:34px;background:#2563EB;color:#fff;border-radius:40px 40px 10px 40px;padding:34px 40px;font-weight:600;font-size:42px;line-height:1.4}
+.lab2{margin-top:44px;font-weight:800;font-size:28px;letter-spacing:.12em;color:#64748B;text-transform:uppercase}
+.swap{margin-top:40px;display:flex;flex-direction:column;gap:26px}
+.swap>div{border-radius:28px;padding:30px 36px;font-weight:600;font-size:42px;line-height:1.35}
+.swap .no{background:#FEF2F2;border:2px solid #FECACA;color:#0F172A}.swap .yes{background:#F0FDF4;border:2px solid #BBF7D0;color:#0F172A}
+.swap b{display:block;font-weight:800;font-size:28px;letter-spacing:.1em;margin-bottom:10px}.swap .no b{color:#B91C1C}.swap .yes b{color:#15803D}
+.box{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border:8px solid #2563EB;border-radius:26px;font-size:80px;color:#2563EB;font-weight:800}
+.chip{align-self:flex-start;display:inline-block;padding:14px 30px;border-radius:999px;font-weight:800;font-size:30px;letter-spacing:.08em}
+.gpk{align-self:flex-start;display:inline-block;padding:14px 30px;border-radius:999px;background:#0F172A;color:#E9C46A;font-weight:800;font-size:30px;letter-spacing:.08em}
+.week{margin-top:40px;display:grid;grid-template-columns:110px repeat(6,1fr);gap:10px;font-weight:700;font-size:26px}
+.week .d{text-align:center;color:#64748B;padding-bottom:6px}.week .h{color:#94A3B8;font-size:24px;display:flex;align-items:center}
+.week .c{height:74px;border-radius:14px;background:#fff;border:1px solid #E2E8F0}
+.week .se{background:#DBEAFE;border-color:#93C5FD}.week .ad{background:#FEF3C7;border-color:#FCD34D}.week .re{background:#DCFCE7;border-color:#86EFAC}.week .of{background:#F1F5F9;border-color:#CBD5E1}
+.legend{margin-top:30px;display:flex;flex-wrap:wrap;gap:18px 30px;font-weight:700;font-size:30px;color:#334155}
+.legend i{display:inline-block;width:30px;height:30px;border-radius:8px;vertical-align:-6px;margin-right:10px}
 """
 
 def _b64(path):
@@ -76,46 +92,97 @@ def shot(n, total, kicker, title, text, img, W, box, maxh=640):
             f'<h2>{esc(title)}</h2><p>{esc(text)}</p>{im}</div>')
 
 K = ATELIER / "kit" / "assets"; A = ATELIER / "assets"
+FOOT = f'<div class="foot"><img src="data:image/png;base64,{g.LOGO_C}"></div>'
+
+def thought(n, total, pense, title, dire):
+    """Format « ce qu'elle pense / ce que vous pouvez dire » (bulle grise → bulle bleue)."""
+    return (f'<div class="s light"><div class="page">{n}/{total}</div><div class="kicker">Ce qu\'elle pense</div>'
+            f'<div class="think">«&nbsp;{esc(pense)}&nbsp;»</div><div class="lab2">{esc(title)}</div>'
+            f'<div class="say">{esc(dire)}</div>{FOOT}</div>')
+
+def swap(n, total, title, avant, apres):
+    """Format avant / après : « Au lieu de… » → « Plutôt… »."""
+    return (f'<div class="s light"><div class="page">{n}/{total}</div><h2 style="font-size:64px">{esc(title)}</h2>'
+            f'<div class="swap"><div class="no"><b>✕ AU LIEU DE</b>{esc(avant)}</div><div class="yes"><b>✓ PLUTÔT</b>{esc(apres)}</div></div>{FOOT}</div>')
+
+def check(n, total, title, text):
+    """Format checklist : case à cocher à la place du numéro."""
+    return (f'<div class="s light"><div class="page">{n}/{total}</div><div class="box">✓</div><h2>{esc(title)}</h2><p>{esc(text)}</p>{FOOT}</div>')
+
+def block(n, total, label, cls, title, text):
+    color = {"se": "#DBEAFE;color:#1E3A8A", "ad": "#FEF3C7;color:#78350F", "re": "#DCFCE7;color:#14532D", "of": "#E2E8F0;color:#334155"}[cls]
+    return (f'<div class="s light"><div class="page">{n}/{total}</div><div class="chip" style="background:{color}">{esc(label)}</div>'
+            f'<h2>{esc(title)}</h2><p>{esc(text)}</p>{FOOT}</div>')
+
+def week(n, total, title):
+    rows = [("9 h", ["se", "ad", "se", "se", "se", "of"]), ("11 h", ["se", "se", "se", "se", "se", "of"]),
+            ("12 h", ["re", "re", "re", "re", "re", "of"]), ("14 h", ["se", "se", "of", "se", "se", "of"]),
+            ("16 h", ["se", "se", "of", "se", "se", "of"]), ("17 h", ["re", "re", "of", "re", "re", "of"])]
+    cells = '<div></div>' + "".join(f'<div class="d">{d}</div>' for d in ("Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"))
+    for h, cs in rows:
+        cells += f'<div class="h">{h}</div>' + "".join(f'<div class="c {c}"></div>' for c in cs)
+    leg = ('<div class="legend"><span><i style="background:#DBEAFE"></i>Séances</span><span><i style="background:#FEF3C7"></i>Administratif</span>'
+           '<span><i style="background:#DCFCE7"></i>Réponses aux messages</span><span><i style="background:#F1F5F9;border:1px solid #CBD5E1"></i>Off</span></div>')
+    return (f'<div class="s light shot"><div class="page">{n}/{total}</div><div class="kicker">Modèle à recopier</div>'
+            f'<h2>{esc(title)}</h2><div class="week">{cells}</div>{leg}</div>')
+
+def gp(n, total, title, text, img=None, W=None, box=None, maxh=520):
+    """Slide « Dans GuidPilot » : le lien concret entre le conseil et une vraie fonction (ton informatif)."""
+    if img:
+        x0, y0, x1, y1 = box; sc = min(888 / (x1 - x0), maxh / (y1 - y0))
+        fw, fh = round((x1 - x0) * sc), round((y1 - y0) * sc)
+        im = (f'<div class="frame" style="width:{fw}px"><div class="bar"><i></i><i></i><i></i><span>Compte de démonstration</span></div>'
+              f'<div class="vp" style="height:{fh}px"><img src="data:image/png;base64,{_b64(img)}" style="width:{round(W*sc)}px;left:{-round(x0*sc)}px;top:{-round(y0*sc)}px"></div></div>')
+        return (f'<div class="s light shot"><div class="page">{n}/{total}</div><div class="gpk">DANS GUIDPILOT</div>'
+                f'<h2 style="font-size:64px">{esc(title)}</h2><p>{esc(text)}</p>{im}</div>')
+    return (f'<div class="s light"><div class="page">{n}/{total}</div><div class="gpk">DANS GUIDPILOT</div>'
+            f'<h2>{esc(title)}</h2><p>{esc(text)}</p>{FOOT}</div>')
 
 g.C = {
  # Lundi 19/10 10h — CONSEIL guidance — format « ce que vos clientes pensent sans le dire »
+
  "lun-19_carrousel-pensent-sans-dire": [
   cover_v2("Ce que vos clientes [pensent sans vous le dire]", "Avant, pendant et après la guidance"),
-  second_hook(2, 9, "Vous connaissez ce silence ?", "Je n'ose pas lui demander…",
+  second_hook(2, 10, "Vous connaissez ce silence ?", "Je n'ose pas lui demander…",
               "Chaque question non posée est une hésitation de plus avant de réserver."),
-  point(3, 9, "1", "« Combien de temps [ça dure ?] »", "Indiquez la durée de chaque séance, noir sur blanc. Sans cette information, on hésite à réserver."),
-  point(4, 9, "2", "« Et si je ne comprends pas [les cartes ?] »", "Dites dès le début que vous expliquez tout, et qu'elle peut vous interrompre à tout moment."),
-  point(5, 9, "3", "« Je peux poser [plusieurs questions ?] »", "Annoncez le cadre : une question principale ou un thème. Elle se sent libre, sans déborder."),
-  point(6, 9, "4", "« Je pourrai [relire tout ça ?] »", "Précisez si elle reçoit un compte rendu écrit ou un vocal après la séance, et où le retrouver."),
-  point(7, 9, "5", "« Je n'ose pas [vous réécrire après] »", "Dites-lui comment vous joindre après la séance, et sous quel délai vous répondez."),
-  recap(8, 9, "À dire avant chaque séance", ["La durée exacte", "Vous expliquez tout", "Le cadre des questions", "Ce qu'elle reçoit après", "Comment vous joindre"]),
-  last(9, 9, "Laquelle de ces questions [entendez-vous le plus ?]", "Enregistrez ce post pour préparer votre prochaine séance.", "GUIDANCE"),
+  thought(3, 10, "Combien de temps ça dure ?", "Ce que vous pouvez dire, avant qu'elle réserve", "« La séance dure 45 minutes, en visio ou par écrit, à vous de choisir. »"),
+  thought(4, 10, "Et si je ne comprends pas les cartes ?", "Ce que vous pouvez dire, en début de séance", "« Je vous explique chaque carte. N'hésitez pas à m'interrompre. »"),
+  thought(5, 10, "Je peux poser plusieurs questions ?", "Ce que vous pouvez dire, pour poser le cadre", "« On part d'une question principale. Si une autre vient, on la garde pour la fin. »"),
+  thought(6, 10, "Est-ce que je pourrai relire tout ça ?", "Ce que vous pouvez dire, en fin de séance", "« Vous recevez un compte rendu écrit, ou un vocal, d'ici demain. »"),
+  thought(7, 10, "Je n'ose pas lui réécrire après.", "Ce que vous pouvez dire, en la quittant", "« Si une question vous revient, écrivez-moi : je réponds sous 48 h. »"),
+  gp(8, 10, "Les réponses, [avant même la question]", "Chaque prestation de votre page affiche sa durée et son format. Après la séance, sa guidance écrite ou vocale l'attend dans son espace client.",
+     K / "guid.png", 1270, (20, 232, 415, 480)),
+  recap(9, 10, "À dire à chaque cliente", ["La durée et le format", "Vous expliquez tout", "Le cadre des questions", "Ce qu'elle reçoit après", "Comment vous joindre"]),
+  last(10, 10, "Laquelle de ces questions [entendez-vous le plus ?]", "Enregistrez ce post pour préparer votre prochaine séance.", "GUIDANCE"),
  ],
  # Mardi 20/10 10h — CONSEIL thérapeutes — mini-guide pas à pas
+
  "mar-20_carrousel-suivi-sans-forcer": [
-  cover_v2("Proposer un suivi en plusieurs séances, [sans forcer]", "Sophrologie, hypnose, Reiki, réflexologie"),
+  cover_v2("Proposer un suivi en plusieurs séances, [sans forcer]", "4 phrases à changer dès demain"),
   second_hook(2, 9, "Vous vous reconnaissez ?", "Je ne veux pas avoir l'air de vendre des séances…",
               "Proposer un cadre, ce n'est pas vendre : c'est rassurer votre cliente."),
-  point(3, 9, "1", "Expliquez [dès la 1re séance]", "Comment se passe un accompagnement chez vous : la durée d'une séance, l'intervalle habituel entre deux rendez-vous."),
-  point(4, 9, "2", "Un [rythme], pas un engagement", "« Je vous propose de nous revoir dans trois semaines, et on fera le point. » Votre cliente garde la main."),
-  point(5, 9, "3", "La date [avant de vous quitter]", "Le rendez-vous suivant se cale à la fin de la séance, pas « quand vous voulez »."),
-  point(6, 9, "4", "Notez [ce qui a été vu]", "Quelques lignes privées après chaque séance : vous reprenez le fil sans tout redemander."),
-  point(7, 9, "5", "Un point [à mi-parcours]", "Demandez-lui simplement comment elle vit l'accompagnement, et ajustez le rythme ensemble."),
-  recap(8, 9, "Un suivi qui rassure", ["Le cadre expliqué dès le début", "Un rythme proposé, jamais imposé", "La date fixée avant de partir", "Vos notes après chaque séance", "Un point à mi-parcours"]),
+  swap(3, 9, "À la fin de la [première séance]", "« Revenez quand vous voulez. »", "« En général, on se revoit toutes les trois semaines. On fera le point ensemble. »"),
+  swap(4, 9, "Quand elle hésite [à s'engager]", "« Il faudra au moins dix séances. »", "« On avance séance par séance. Vous restez libre à chaque fois. »"),
+  swap(5, 9, "Avant qu'elle [reparte]", "« On se rappelle pour la suite ? »", "« Je vous propose mardi 14 h dans trois semaines, ça vous irait ? »"),
+  swap(6, 9, "À la [séance suivante]", "Lui redemander tout ce qu'elle vous a déjà raconté.", "Relire vos notes avant qu'elle arrive, et reprendre là où vous en étiez."),
+  gp(7, 9, "La suite, [prête avant qu'elle parte]", "Vous planifiez le prochain rendez-vous en un clic, et vos notes restent privées dans sa fiche : elle ne les voit jamais.",
+     K / "dash_np.png", 1270, (840, 590, 1225, 990), maxh=480),
+  recap(8, 9, "Un suivi qui rassure", ["Un rythme proposé, jamais imposé", "Sa liberté rappelée", "La date fixée avant de partir", "Vos notes relues avant la séance"]),
   last(9, 9, "Comment proposez-vous [la séance suivante ?]", "Enregistrez ce post pour votre prochaine première séance.", "THÉRAPEUTE"),
  ],
  # Mercredi 21/10 10h — CONSEIL guidance — checklist
+
  "mer-21_carrousel-fin-annee": [
-  cover_v2("Fêtes de fin d'année : [6 choses à préparer dès maintenant]", "Checklist praticienne en guidance"),
+  cover_v2("Fêtes de fin d'année : [5 choses à préparer dès maintenant]", "La checklist à cocher"),
   second_hook(2, 10, "Le piège classique", "Je verrai ça en décembre.",
               "Préparer en octobre, c'est vivre décembre plus sereinement."),
-  point(3, 10, "1", "Vos [dates de congés]", "Bloquez-les dans votre agenda et annoncez-les dès maintenant à vos clientes."),
-  point(4, 10, "2", "Vos [horaires des fêtes]", "Les 24 et 31 décembre, vous travaillez ou non ? Dites-le avant qu'on vous le demande."),
-  point(5, 10, "3", "Une idée [de cadeau]", "Une séance à offrir, avec un message personnel : certaines clientes y pensent pour Noël."),
-  point(6, 10, "4", "Vos [messages prêts]", "Préparez le message d'absence, et celui qui annonce votre reprise en janvier."),
-  point(7, 10, "5", "Le point [sur vos clientes]", "Repérez celles que vous n'avez pas vues depuis longtemps. Un simple message de fin d'année suffit."),
-  point(8, 10, "6", "Votre [planning de janvier]", "Ouvrez vos créneaux de janvier avant de partir : la rentrée se réserve aussi pendant les fêtes."),
-  recap(9, 10, "Ma checklist des fêtes", ["Congés bloqués et annoncés", "Horaires du 24 et du 31", "Une séance à offrir", "Messages d'absence prêts", "Point sur mes clientes", "Janvier ouvert"]),
+  check(3, 10, "Vos [dates de congés]", "Bloquez-les dans votre agenda et annoncez-les dès maintenant à vos clientes."),
+  check(4, 10, "Vos [horaires des fêtes]", "Les 24 et 31 décembre, vous travaillez ou non ? Dites-le avant qu'on vous le demande."),
+  check(5, 10, "Une idée [de cadeau]", "Une séance à offrir, avec un message personnel : certaines clientes y pensent pour Noël."),
+  check(6, 10, "Vos [messages prêts]", "Le message d'absence, et celui qui annonce votre reprise en janvier."),
+  check(7, 10, "Votre [planning de janvier]", "Ouvrez vos créneaux de janvier avant de partir : la rentrée se réserve aussi pendant les fêtes."),
+  gp(8, 10, "Vos séances, [en carte cadeau]", "Vos clientes peuvent offrir une séance en carte cadeau à votre logo, avec un message personnel, directement depuis votre page. Et vos congés se bloquent dans votre agenda."),
+  recap(9, 10, "Ma checklist des fêtes", ["Congés bloqués et annoncés", "Horaires du 24 et du 31", "Une séance à offrir", "Messages d'absence prêts", "Janvier ouvert"]),
   last(10, 10, "Vous travaillez [pendant les fêtes ?]", "Enregistrez ce post et cochez au fur et à mesure.", "GUIDANCE"),
  ],
  # Jeudi 22/10 10h — PROMO thérapeutes — réservation pendant la séance
@@ -133,15 +200,16 @@ g.C = {
   last_promo(8, 8, "Combien de messages pour caler [un seul rendez-vous ?]", "THÉRAPEUTE"),
  ],
  # Samedi 24/10 10h — CONSEIL thérapeutes — mini-guide
+
  "sam-24_carrousel-semaine-type": [
-  cover_v2("Votre semaine type de cabinet, [en 5 blocs]", "Pour ne plus déborder"),
+  cover_v2("Votre semaine type de cabinet, [à recopier]", "Pour ne plus déborder"),
   second_hook(2, 9, "Vous vous reconnaissez ?", "Je prends les rendez-vous quand mes clientes peuvent.",
               "Résultat : des trous partout, et des soirées qui débordent."),
-  point(3, 9, "1", "Les blocs [séances]", "Choisissez 2 ou 3 plages fixes par jour. Vos clientes réservent dedans, pas ailleurs."),
-  point(4, 9, "2", "Le bloc [administratif]", "Une heure par semaine, toujours le même jour : factures, messages, organisation."),
-  point(5, 9, "3", "Les [pauses] entre deux séances", "15 minutes pour aérer la pièce, noter quelques lignes et souffler."),
-  point(6, 9, "4", "Un créneau [pour répondre]", "Les messages, deux fois par jour à heure fixe. Pas entre deux séances."),
-  point(7, 9, "5", "Un jour [vraiment off]", "Sans séance ni message. Notez-le dans votre agenda comme un rendez-vous."),
+  week(3, 9, "Une semaine [qui respire]"),
+  block(4, 9, "EN BLEU · LES SÉANCES", "se", "Des plages [fixes]", "Deux ou trois plages par jour, toujours les mêmes. Vos clientes réservent dedans, pas ailleurs."),
+  block(5, 9, "EN JAUNE · L'ADMINISTRATIF", "ad", "Une heure, [le même jour]", "Factures, messages en retard, organisation : tout tient dans un seul créneau par semaine."),
+  block(6, 9, "EN VERT · LES RÉPONSES", "re", "Deux fois par jour, [à heure fixe]", "Midi et fin d'après-midi. Entre deux séances, vous prenez 15 minutes pour aérer et souffler."),
+  gp(7, 9, "Vos plages deviennent [vos disponibilités]", "Vous renseignez vos disponibilités une fois. Vos clientes ne peuvent réserver que dans les créneaux que vous ouvrez : votre semaine type se respecte toute seule."),
   recap(8, 9, "Ma semaine type", ["Des plages de séances fixes", "1 h d'administratif par semaine", "15 min entre deux séances", "2 créneaux de réponse par jour", "1 jour vraiment off"]),
   last(9, 9, "Quel bloc vous manque [le plus ?]", "Enregistrez ce post pour construire votre semaine ce week-end.", "THÉRAPEUTE"),
  ],
