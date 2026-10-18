@@ -6,7 +6,29 @@ Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le
 
 Décidée avec Normane le 15/10/2026 après analyse Metricool : ~22 abonnés, portée moyenne 9 personnes par Reel et 5 par post, 2 à 10 s de visionnage moyen, 0 partage et 0 enregistrement, 4 à 5 posts par jour dont des doublons. Diagnostic : trop de volume, trop de pub, accroches trop lentes, contenus répétés. **Moins, mieux, plus utile.**
 
-### Planning (remplace 10h / 13h / 15h / 18h)
+### ⏱️ RYTHME EN VIGUEUR — décision de Normane du 17/10/2026 (PRIORITAIRE sur le planning « 1 post par jour à 12h30 » ci-dessous)
+- **2 posts Instagram par jour, 7 jours sur 7**, aux 2 meilleurs créneaux Metricool (getBestTimeToPostByNetwork instagram, revérifié à chaque lot) : **10h00 et 18h00** (Europe/Paris). Si les 2 meilleurs créneaux non adjacents (≥ 5 h d'écart) changent, utiliser les nouveaux et le dire dans le récapitulatif.
+- Public du jour : **guidance lun/mer/ven/dim, thérapeutes mar/jeu/sam** (les 2 posts du jour visent le même public, sur 2 sujets différents).
+- **10h00 = CARROUSEL 8–10 slides** : CONSEIL du lundi au samedi sauf jeudi ; **jeudi et dimanche = carrousel PROMO douce** (problème réel → vraie fonction en 3–4 slides avec captures du compte de démonstration → bénéfice → « Commentez GUIDANCE/THÉRAPEUTE »).
+- **18h00 = REEL 15–30 s → Instagram + YouTube Short** (même post Metricool) : lun CONSEIL, mar CONSEIL, **mer PROMO**, jeu CONSEIL, ven CONSEIL, **sam PROMO**, dim CONSEIL. → 14 posts/semaine (9 conseils + 5 promos), jamais plus de 2 posts par jour (stories non comptées).
+- Publication sans validation (`draft: false`, `autoPublish: true`) ; un contenu qui échoue au contrôle final reste en `draft: true` et est signalé. Anti-double lancement : verrou `atelier/lots/AAAA-MM-JJ.lock` (date du lundi) créé et poussé avant toute production.
+- **Prononciation (Normane, 16/10/2026)** : dans le TEXTE envoyé à generate-voiceover, écrire « Guide Pilote » (et « guide pilote point F R » pour le site) ; à l'écran, garder « GuidPilot » / « guidpilot.fr ».
+- Générateurs de la semaine du 19/10 : Reels `reels/gen_v2.py <clé> <voix.wav>` (il importe désormais `gen_promos.py` → scènes `shot` / `phone` / `myth` utilisables dans les Reels V2 ; option `"size"` sur `hook2` pour les accroches longues) ; carrousels `carrousels/gen_semaine_2026-10-19.py` (ajoute `shot()` = capture recadrée « Compte de démonstration », `prob()` = slide « Le problème / Étape », `last_promo()` = dernière slide PROMO).
+
+### 📱 Stories (décision de Normane du 16/10/2026, horaires du 17/10/2026)
+- **13 stories/semaine** : 8h30 et 20h00 du lundi au samedi, 12h30 le dimanche. Image fixe 1080×1920 (JPG), une idée, texte très gros, **rien d'important dans les 250 px du haut ni les 340 px du bas**, logo officiel petit en bas de la zone sûre. Story vidéo seulement avec voix off Claire + badge IA.
+- **20h00 = teaser du Reel de 18h00** (« Nouveau Reel sur le profil 👆 ») ; si le Reel est en brouillon, teaser du carrousel de 10h.
+- **8h30 et dimanche** : rotation sans répéter le même type deux jours de suite — (a) mot-clé ManyChat **GUIDANCE / THÉRAPEUTE** (2–3/semaine ; jamais « GuidPilot » comme mot-clé de story), (b) conseil express, (c) question ouverte « Répondez à cette story », (d) vraie fonction sur capture démo, (e) jusqu'au 26/10/2026 : 2 rappels concours max + mention « Ce jeu n'est ni organisé, ni parrainé, ni géré par Instagram ».
+- Interdit en publication automatique : stickers sondage / quiz / question / lien / musique / mention ; jamais « votez », « cliquez sur le lien », « swipe up ».
+- Générateur : `python3 stories/gen_stories.py stories/specs_AAAA-MM-JJ.py <dossier_semaine>/stories` (types `keyword`, `teaser`, `tip`, `question`, `feature`, `concours` ; `[mot]` = mis en valeur ; contrôle automatique de la zone sûre 250 → 1580 affiché « OK » / « HORS ZONE »). Exemple : `stories/specs_2026-10-19.py`.
+- Metricool : un post par story, `providers [{"network":"instagram"}]`, `instagramData {"type":"STORY","isAiGenerated":false}` (true si voix IA), **aucun champ text**, media = URL jsDelivr au SHA, `draft: false`, `autoPublish: true`.
+
+### Thèmes traités — semaine du 19 au 25/10/2026 (ne pas reprendre tels quels)
+- Carrousels : ce que vos clientes pensent sans le dire (guidance) ; proposer un suivi en plusieurs séances sans forcer (thérapeutes) ; fêtes de fin d'année, 6 choses à préparer (guidance) ; PROMO réservation pendant la séance, parcours page → créneau → agenda → facture (thérapeutes) ; « Juste une petite question… » (guidance, validé) ; semaine type de cabinet en 5 blocs (thérapeutes) ; PROMO page praticienne / lien en bio (guidance).
+- Reels : 3 phrases qui font fuir vos clientes (validé) ; séance d'1 h, le temps invisible (thérapeutes, elan) ; PROMO « Vous pouvez me renvoyer ma guidance ? » module Guidances (lofi) ; premier appel « se renseigner » (thérapeutes, cocon) ; rythme entre deux guidances (aube) ; concours « Plus que 2 jours » (pilote) ; 3 signes pour augmenter ses tarifs (lofi).
+- Stories : mot-clé GUIDANCE ×2, THÉRAPEUTE ×1, rappel la veille, concours « Plus que 5 jours », question « mal à l'aise », fonction « votre journée d'un coup d'œil », 6 teasers.
+
+### Planning (remplace 10h / 13h / 15h / 18h) — ⚠️ remplacé par le RYTHME du 17/10 ci-dessus
 | Jour | Public | Heure | Format | Type |
 |---|---|---|---|---|
 | Lundi | guidance | 12h30 | Reel (+ Short YouTube) | CONSEIL |
