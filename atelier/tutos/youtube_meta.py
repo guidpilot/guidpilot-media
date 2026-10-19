@@ -18,8 +18,9 @@ def meta(spec_path):
     tm = json.loads((pathlib.Path("build") / spec["slug"] / "timing.json").read_text())
     b = tm["bounds"]
     chap = [("0:00", "Introduction")]
+    nsteps = sum(1 for sc in spec["scenes"] if sc["type"] == "shot" and sc.get("step"))
     for i, sc in enumerate(spec["scenes"]):
-        if sc["type"] == "shot" and sc.get("step"):
+        if sc["type"] == "shot" and (sc.get("step") or nsteps < 3):
             chap.append((ts(b[i]), plain(sc["caption"])))
         elif sc["type"] == "recap":
             chap.append((ts(b[i]), "En résumé"))
