@@ -1,0 +1,46 @@
+"""Tuto 19 · Parrainer un praticien (série « Aller plus loin »).
+Vérifié (commit 86ffbd2a) : lien guidpilot.fr/inscription?ref=CODE ; filleul 14 jours d'essai ; après ses 2 premières mensualités,
+1 mois offert au parrain, appliqué automatiquement à la prochaine mensualité ; 5 mois max par année civile. Aucun prix cité."""
+
+CARD = " >> xpath=ancestor::*[contains(@class,'rounded')][1]"
+
+TUTO = {
+    "slug": "tuto-19-parrainer-un-praticien",
+    "num": 19, "range": (15, 21),
+    "series": "Aller plus loin",
+    "title": "Parrainer un praticien",
+    "subtitle": "Partager votre lien et gagner des mois GuidPilot offerts",
+    "music": "aube",
+    "next": "Tuto 20 · Support, nouveautés et notifications",
+    "scenes": [
+        {"type": "intro",
+         "voice": "Dans ce tutoriel, vous parrainez un autre praticien : pour chaque filleul qualifié, vous gagnez un mois GuidPilot offert."},
+        {"type": "shot", "snap": "r4_01_parrainage", "step": 1,
+         "caption": "Dans le menu, ouvrez <b>Parrainage</b>",
+         "focus": "aside a[href='/parrainage']", "zoom": 2.0, "click": True,
+         "voice": "Dans le menu, ouvrez Parrainage."},
+        {"type": "shot", "snap": "r4_01_parrainage", "step": 2,
+         "caption": "Cliquez sur <b>Copier mon lien</b>",
+         "focus": "main button:has-text('Copier mon lien') >> nth=0", "focus2": "main :text('Code :')", "focus_pad": [16, 16, 0, 0], "zoom": 1.6,
+         "click_sel": "main button:has-text('Copier mon lien') >> nth=0",
+         "voice": "Votre lien de parrainage vous est personnel. Cliquez sur Copier mon lien, puis collez-le dans un message."},
+        {"type": "shot", "snap": "r4_01_parrainage", "step": None,
+         "caption": "Ou partagez-le en un clic par <b>WhatsApp</b> ou <b>e-mail</b>",
+         "focus": "main button:has-text('WhatsApp'), main a:has-text('WhatsApp')", "focus2": "main :text-is('E-mail')", "focus_pad": [16, 16, 0, 0], "zoom": 2.0,
+         "voice": "Vous pouvez aussi le partager directement par WhatsApp ou par e-mail : un message prêt à envoyer s'ouvre."},
+        {"type": "shot", "snap": "r4_01_parrainage", "step": 3,
+         "caption": "Suivez vos <b>filleuls</b> et vos <b>mois offerts</b>",
+         "focus": ":text('Filleuls invités')" + CARD, "focus2": ":text('Mois gratuits déjà utilisés')" + CARD, "zoom": 1.2,
+         "voice": "Suivez ici vos filleuls invités, ceux en essai, ceux qualifiés, et vos mois gratuits disponibles."},
+        {"type": "shot", "snap": "r4_02_parrainage_bas", "step": None, "kind": "result",
+         "caption": "Après <b>2 mensualités</b> de votre filleul : <b>1 mois offert</b>",
+         "focus": ":text('Parrainez. Gagnez.')" + CARD, "zoom": 1.2,
+         "voice": "Votre filleul profite de quatorze jours d'essai gratuit. Dès qu'il a réglé ses deux premières mensualités, vous gagnez un mois offert, appliqué automatiquement à votre prochaine mensualité. Jusqu'à cinq mois offerts par an."},
+        {"type": "recap",
+         "items": ["Menu Parrainage", "Copier ou partager votre lien", "Quatorze jours d'essai pour votre filleul",
+                   "Un mois offert par filleul qualifié"],
+         "voice": "En résumé : partagez votre lien, votre filleul teste GuidPilot gratuitement, et vous gagnez un mois offert pour chaque filleul qualifié."},
+        {"type": "outro",
+         "voice": "Dans le dernier tutoriel, vous découvrirez le support, les nouveautés et les notifications."},
+    ],
+}

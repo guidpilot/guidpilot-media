@@ -1,0 +1,55 @@
+"""Tuto 16 · Proposer des forfaits de séances (série « Aller plus loin »).
+Vérifié (commit 86ffbd2a) : forfait = N séances d'une prestation, validité 3 mois à 2 ans ; vente en ligne (Stripe/PayPal)
+ou au cabinet ; une séance est décomptée quand le code est appliqué à la facture (pas à la réservation) ;
+le client voit ses séances restantes dans « Mes cartes et forfaits »."""
+
+DLG = "[role=dialog][data-state=open]"
+
+TUTO = {
+    "slug": "tuto-16-proposer-des-forfaits-de-seances",
+    "num": 16, "range": (15, 21),
+    "series": "Aller plus loin",
+    "title": "Proposer des forfaits de séances",
+    "subtitle": "Vendre plusieurs séances à l'avance, décomptées au fil des rendez-vous",
+    "music": "cocon",
+    "next": "Tuto 17 · Créer un code promo",
+    "scenes": [
+        {"type": "intro",
+         "voice": "Dans ce tutoriel, vous créez un forfait : plusieurs séances vendues à l'avance, à un tarif avantageux, pour accompagner vos clients dans la durée."},
+        {"type": "shot", "snap": "r1_04_forfaits", "step": 1,
+         "caption": "Dans <b>Cartes cadeaux</b>, ouvrez l'onglet <b>Forfaits</b>",
+         "focus": "role=tab[name='Forfaits']", "zoom": 2.0, "click": True,
+         "voice": "Dans le menu Cartes cadeaux, ouvrez l'onglet Forfaits."},
+        {"type": "shot", "snap": "r1_04_forfaits", "step": None,
+         "caption": "Pour les vendre sur votre page : <b>Stripe ou PayPal</b>",
+         "focus": ":text('Paiement en ligne requis')", "focus2": ":text('Proposer des forfaits sur ma page')", "focus_pad": [16, 16, 0, 0], "zoom": 1.5,
+         "voice": "Pour vendre vos forfaits sur votre page, connectez d'abord Stripe ou PayPal, puis activez Proposer des forfaits sur ma page."},
+        {"type": "shot", "snap": "r1_04_forfaits", "step": 2,
+         "caption": "Cliquez sur <b>Nouveau forfait</b>",
+         "focus": "main button:has-text('Nouveau forfait')", "zoom": 2.2, "click": True,
+         "voice": "Cliquez sur Nouveau forfait."},
+        {"type": "shot", "snap": "r1_05_forfait_nouveau", "step": 3,
+         "caption": "Un <b>nom</b>, la <b>prestation</b>, le <b>nombre de séances</b> et le <b>prix</b>",
+         "focus": f"{DLG} #name", "focus2": f"{DLG} :text('la séance')", "focus_pad": [40, 16, 0, 0], "zoom": 1.5,
+         "voice": "Donnez un nom au forfait, choisissez la prestation, le nombre de séances et le prix total. GuidPilot calcule le prix de chaque séance, pour vérifier que l'offre est avantageuse."},
+        {"type": "shot", "snap": "r1_05_forfait_nouveau", "step": 4,
+         "caption": "Choisissez la <b>validité</b>, puis <b>Enregistrer</b>",
+         "focus": f"{DLG} select >> nth=-1", "focus2": f"{DLG} button:has-text('Enregistrer')", "focus_pad": [40, 16, 0, 0], "zoom": 1.4,
+         "click_sel": f"{DLG} button:has-text('Enregistrer')",
+         "voice": "Choisissez la durée de validité, ajoutez une description si vous le souhaitez, vérifiez que le forfait est actif, puis cliquez sur Enregistrer."},
+        {"type": "shot", "snap": "r1_06_vendre", "step": 5,
+         "caption": "Au cabinet : <b>Vendre une carte au cabinet</b>, puis <b>Forfait</b>",
+         "focus": f"{DLG} button:has-text('Forfait')", "focus2": f"{DLG} button:has-text('Carte cadeau')", "focus_pad": [40, 16, 0, 0], "zoom": 1.8,
+         "voice": "Votre client règle son forfait au cabinet ? Dans l'onglet Ventes, cliquez sur Vendre une carte au cabinet, choisissez Forfait, puis le mode de règlement."},
+        {"type": "shot", "snap": "r1_01_ventes", "step": None, "kind": "result",
+         "caption": "Une séance est <b>décomptée</b> à chaque paiement avec le forfait",
+         "focus": "main button:has-text('Forfaits') >> nth=-1", "focus2": "main input[placeholder*='Nom ou code']", "zoom": 1.5,
+         "voice": "À chaque rendez-vous, votre client utilise le code de son forfait au moment du paiement, ou vous l'appliquez depuis la facture : une séance est alors décomptée. Il voit ses séances restantes dans son espace client, à la rubrique Mes cartes et forfaits."},
+        {"type": "recap",
+         "items": ["Onglet Forfaits, Nouveau forfait", "Prestation, séances, prix, validité",
+                   "Enregistrer à chaque modification", "Une séance décomptée à chaque paiement"],
+         "voice": "En résumé : créez votre forfait, choisissez la prestation, le nombre de séances, le prix et la validité, enregistrez, puis vendez-le en ligne ou au cabinet."},
+        {"type": "outro",
+         "voice": "Dans le prochain tutoriel, vous créerez un code promo."},
+    ],
+}

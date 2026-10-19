@@ -1,0 +1,50 @@
+"""Tuto 18 · Publier un article de blog (série « Aller plus loin »).
+Vérifié (commit 86ffbd2a) : contenu en texte simple (sauts de ligne conservés) ; image 5 Mo max ; Brouillon / Publié ;
+menu Modifier / Publier ou Repasser en brouillon / Supprimer ; les 3 derniers articles sur la page publique, page /p/<slug>/blog."""
+
+DLG = "[role=dialog][data-state=open]"
+
+TUTO = {
+    "slug": "tuto-18-publier-un-article-de-blog",
+    "num": 18, "range": (15, 21),
+    "series": "Aller plus loin",
+    "title": "Publier un article de blog",
+    "subtitle": "Partager vos conseils sur votre page publique",
+    "music": "lofi",
+    "next": "Tuto 19 · Parrainer un praticien",
+    "scenes": [
+        {"type": "intro",
+         "voice": "Dans ce tutoriel, vous publiez un article de blog : vos conseils apparaissent sur votre page publique et rassurent vos futurs clients."},
+        {"type": "shot", "snap": "r3_01_blog", "step": 1,
+         "caption": "Dans le menu, ouvrez <b>Blog</b>, puis <b>Nouvel article</b>",
+         "focus": "main button:has-text('Nouvel article')", "zoom": 2.2, "click": True,
+         "voice": "Dans le menu, ouvrez Blog, puis cliquez sur Nouvel article."},
+        {"type": "shot", "snap": "r3_02_blog_nouveau", "step": 2,
+         "caption": "Un <b>titre</b> et un court <b>extrait</b>",
+         "focus": f"{DLG} #blog-title", "focus2": f"{DLG} #blog-excerpt", "focus_pad": [40, 16, 0, 0], "zoom": 1.6,
+         "voice": "Donnez un titre à votre article. L'extrait, facultatif, est le court résumé affiché dans la liste de vos articles."},
+        {"type": "shot", "snap": "r3_02_blog_nouveau", "step": 3,
+         "caption": "Rédigez le <b>contenu</b> de l'article",
+         "focus": f"{DLG} #blog-content", "focus_pad": [40, 16, 0, 0], "zoom": 1.5,
+         "voice": "Rédigez ensuite votre article. Passez une ligne entre deux paragraphes : ils s'affichent tels quels sur votre page."},
+        {"type": "shot", "snap": "r3_03_blog_nouveau_bas", "step": 4,
+         "caption": "Ajoutez une <b>image de couverture</b> (facultatif)",
+         "focus": f"{DLG} button:has-text('Importer une image')", "focus2": f"{DLG} :text('Aucune image de couverture')", "focus_pad": [16, 16, 0, 0], "zoom": 1.6,
+         "voice": "Vous pouvez ajouter une image de couverture, jusqu'à cinq mégaoctets."},
+        {"type": "shot", "snap": "r3_03_blog_nouveau_bas", "step": 5,
+         "caption": "<b>Brouillon</b> ou <b>publié</b>, puis <b>Créer l'article</b>",
+         "focus": f"{DLG} button:has-text(\"Créer l'article\")", "focus2": f"{DLG} [role=switch]", "focus_pad": [40, 16, 0, 0], "zoom": 1.6,
+         "click_sel": f"{DLG} button:has-text(\"Créer l'article\")",
+         "voice": "Tant que l'interrupteur indique Brouillon, l'article reste privé. Activez-le pour le publier, puis cliquez sur Créer l'article. Après chaque modification, pensez à cliquer sur Enregistrer."},
+        {"type": "shot", "snap": "r3_01_blog", "step": None, "kind": "result",
+         "caption": "Publié : l'article apparaît <b>aussitôt</b> sur votre page publique",
+         "focus": "main tr:has-text('Publié')", "zoom": 1.4,
+         "voice": "Un article publié apparaît aussitôt sur votre page publique, qui affiche vos trois derniers articles. Le menu à droite permet de le modifier, de le repasser en brouillon ou de le supprimer."},
+        {"type": "recap",
+         "items": ["Blog, Nouvel article", "Titre, extrait, contenu, image", "Brouillon tant que ce n'est pas prêt",
+                   "Enregistrer à chaque modification"],
+         "voice": "En résumé : rédigez votre article, gardez-le en brouillon tant qu'il n'est pas prêt, publiez-le, et enregistrez à chaque modification."},
+        {"type": "outro",
+         "voice": "Dans le prochain tutoriel, vous parrainerez un autre praticien."},
+    ],
+}
