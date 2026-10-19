@@ -38,7 +38,7 @@ TUTO = {
          "voice": "Tant que l'interrupteur indique Brouillon, l'article reste privé. Activez-le pour le publier, puis cliquez sur Créer l'article. Après chaque modification, pensez à cliquer sur Enregistrer."},
         {"type": "shot", "snap": "r3_01_blog", "step": None, "kind": "result",
          "caption": "Publié : l'article apparaît <b>aussitôt</b> sur votre page publique",
-         "focus": "main tr:has-text('Publié')", "zoom": 1.4,
+         "focus": "main td:has-text('Bien préparer')", "focus2": "main td:has-text('Publié')", "focus_pad": [12, 12, 0, 0], "zoom": 1.8,
          "voice": "Un article publié apparaît aussitôt sur votre page publique, qui affiche vos trois derniers articles. Le menu à droite permet de le modifier, de le repasser en brouillon ou de le supprimer."},
         {"type": "recap",
          "items": ["Blog, Nouvel article", "Titre, extrait, contenu, image", "Brouillon tant que ce n'est pas prêt",
