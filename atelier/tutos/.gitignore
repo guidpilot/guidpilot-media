@@ -1,0 +1,4 @@
+build/
+__pycache__/
+outils/node_modules/
+snaps/
