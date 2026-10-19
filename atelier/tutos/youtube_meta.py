@@ -45,7 +45,7 @@ def meta(spec_path):
     desc = "\n".join([
         f"{spec['subtitle']}.",
         "",
-        f"Série « {spec['series']} » : les tutoriels pour configurer votre espace GuidPilot pas à pas.",
+        f"Série « {spec['series']} » : " + ("les tutoriels pour configurer votre espace GuidPilot pas à pas." if spec['series'] == "Mettre en place GuidPilot" else "les tutoriels pour utiliser GuidPilot pas à pas."),
         "",
         "Chapitres",
         *[f"{a} {c}" for a, c in chap],
