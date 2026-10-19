@@ -29,6 +29,7 @@ def font_faces():
 
 def prepare(html):
     html = re.sub(r"@font-face\s*\{[^}]*\}", "", html)
+    html = html.replace('loading="lazy"', '')
     return html.replace("</head>", f"<style id='gpfonts'>{font_faces()}</style>"
                         "<style>*{transition:none!important;animation:none!important;caret-color:transparent}"
                         "[data-sonner-toaster]{display:none}</style></head>", 1)

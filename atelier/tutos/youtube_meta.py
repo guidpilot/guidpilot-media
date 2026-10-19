@@ -23,14 +23,20 @@ def meta(spec_path):
             chap.append((ts(b[i]), plain(sc["caption"])))
         elif sc["type"] == "recap":
             chap.append((ts(b[i]), "En résumé"))
-    # YouTube : chapitres d'au moins 10 s → on fusionne les étapes trop courtes avec la précédente
-    def secs(s):
-        m_, s_ = s.split(":"); return int(m_) * 60 + int(s_)
+    # YouTube : chapitres d'au moins 10 s. On écarte les « Cliquez sur Enregistrer », puis on décale un
+    # chapitre trop proche du précédent (6 s maximum) ; au-delà, il est fusionné avec le précédent.
+    chap = [c for c in chap if not re.match(r"(Cliquez sur Enregistrer|Tout en bas)", c[1])]
+    def secs(s_):
+        m_, s2 = s_.split(":"); return int(m_) * 60 + int(s2)
     kept = []
-    for a, c in chap:
-        if kept and secs(a) - secs(kept[-1][0]) < 10:
-            continue
-        kept.append((a, c))
+    for a_, c in chap:
+        t = secs(a_)
+        if kept:
+            t2 = max(t, secs(kept[-1][0]) + 10)
+            if t2 - t > 6:
+                continue
+            t = t2
+        kept.append((ts(t), c))
     while len(kept) > 1 and tm["duration"] - secs(kept[-1][0]) < 10:
         kept.pop()
     chap = kept

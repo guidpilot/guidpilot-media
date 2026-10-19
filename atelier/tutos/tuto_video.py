@@ -150,17 +150,17 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F6F8FC;font-fam
 def scene_html(i, sc, spec, nsteps):
     aib = '<div class="aib">Voix off générée par IA</div>'
     if sc["type"] == "intro":
-        steps = "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(1, 7))
+        steps = "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(1, spec.get("total", 5) + 1))
         return (f'<div class="layer dark" id="L{i}">{aib}<img class="in-logo" src="logo_blanc.png">'
                 f'<div class="in-chip">{spec["series"]}</div><div class="in-num">Tutoriel {spec["num"]}</div>'
-                f'<div class="in-title">{spec["title"]}</div><div class="in-bar" id="bar{i}"></div>'
+                f'<div class="in-title" style="font-size:{min(104, int(1300 / (len(spec["title"]) * 0.52)))}px">{spec["title"]}</div><div class="in-bar" id="bar{i}"></div>'
                 f'<div class="in-sub">{spec["subtitle"]}</div><div class="in-steps">{steps}</div></div>')
     if sc["type"] == "recap":
         items = "".join(f'<div class="rc-i" id="rc{i}_{k}"><em>✓</em>{t}</div>' for k, t in enumerate(sc["items"]))
         return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">Tuto {spec["num"]} · {spec["title"]}</span></div>'
                 f'<div class="rc-t">En résumé</div><div class="rc-l">{items}</div></div>')
     if sc["type"] == "outro":
-        return (f'<div class="layer dark" id="L{i}">{aib}<div class="ou-l">Prochain tutoriel</div><div class="ou-t">{spec["next"].split("·",1)[-1].strip()}</div>'
+        return (f'<div class="layer dark" id="L{i}">{aib}<div class="ou-l">{"Prochain tutoriel" if spec.get("next") else "Félicitations"}</div><div class="ou-t">{spec["next"].split("·",1)[-1].strip() if spec.get("next") else spec.get("end_title", "Votre espace est prêt")}</div>'
                 f'<div class="ou-s">Tous les tutoriels sont dans GuidPilot, rubrique <b>Aide &amp; tutoriels</b>.<br>Une question ? Écrivez-nous depuis <b>Support</b>.</div>'
                 f'<img class="ou-logo" src="logo_blanc.png"></div>')
     # shot
