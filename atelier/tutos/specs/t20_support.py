@@ -36,7 +36,7 @@ TUTO = {
          "voice": "Indiquez un sujet, expliquez votre besoin en quelques lignes, puis cliquez sur Envoyer le ticket."},
         {"type": "shot", "snap": "r6_01_support", "step": None, "kind": "result",
          "caption": "Notre réponse arrive dans le fil : badge <b>Nouvelle réponse</b>",
-         "focus": "main :text('Question sur les cartes cadeaux') >> xpath=ancestor::*[contains(@class,'rounded')][1]", "zoom": 1.5,
+         "focus": "main :text('Nouvelle réponse')", "focus2": "main :text-is('Ouvert')", "focus_pad": [16, 16, 0, 0], "zoom": 2.2,
          "voice": "Notre équipe vous répond dans le fil du ticket. Revenez dans Support : le badge Nouvelle réponse vous signale notre message."},
         {"type": "shot", "snap": "r6_03_avis_guidpilot", "step": None,
          "caption": "Satisfait ? Laissez votre <b>avis sur GuidPilot</b>",
