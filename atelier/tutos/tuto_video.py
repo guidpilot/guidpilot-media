@@ -147,19 +147,28 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F6F8FC;font-fam
 """
 
 
+def chip_label(spec):
+    return spec.get("chip") or f'Tuto {spec["num"]} · {spec["title"]}'
+
+
 def scene_html(i, sc, spec, nsteps):
     aib = '<div class="aib">Voix off générée par IA</div>'
     if sc["type"] == "intro":
-        steps = "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(*(spec.get("range") or (1, spec.get("total", 5) + 1))))
+        demo = spec.get("mode") == "demo"
+        steps = "" if demo else "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(*(spec.get("range") or (1, spec.get("total", 5) + 1))))
         return (f'<div class="layer dark" id="L{i}">{aib}<img class="in-logo" src="logo_blanc.png">'
-                f'<div class="in-chip">{spec["series"]}</div><div class="in-num">Tutoriel {spec["num"]}</div>'
+                f'<div class="in-chip">{spec["series"]}</div><div class="in-num">{spec.get("kicker") if demo else "Tutoriel " + str(spec["num"])}</div>'
                 f'<div class="in-title" style="font-size:{min(104, int(1300 / (len(spec["title"]) * 0.52)))}px">{spec["title"]}</div><div class="in-bar" id="bar{i}"></div>'
                 f'<div class="in-sub">{spec["subtitle"]}</div><div class="in-steps">{steps}</div></div>')
     if sc["type"] == "recap":
         items = "".join(f'<div class="rc-i" id="rc{i}_{k}"><em>✓</em>{t}</div>' for k, t in enumerate(sc["items"]))
-        return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">Tuto {spec["num"]} · {spec["title"]}</span></div>'
+        return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">{chip_label(spec)}</span></div>'
                 f'<div class="rc-t">En résumé</div><div class="rc-l">{items}</div></div>')
     if sc["type"] == "outro":
+        if spec.get("mode") == "demo":
+            return (f'<div class="layer dark" id="L{i}">{aib}<div class="ou-l">{spec.get("cta_kicker", "Essayez GuidPilot")}</div><div class="ou-t">{spec.get("cta_title")}</div>'
+                    f'<div class="ou-s">{spec.get("cta_sub")}</div>'
+                    f'<img class="ou-logo" src="logo_blanc.png"></div>')
         return (f'<div class="layer dark" id="L{i}">{aib}<div class="ou-l">{"Prochain tutoriel" if spec.get("next") else "Félicitations"}</div><div class="ou-t">{spec["next"].split("·",1)[-1].strip() if spec.get("next") else spec.get("end_title", "Votre espace est prêt")}</div>'
                 f'<div class="ou-s">Tous les tutoriels sont dans GuidPilot, rubrique <b>Aide &amp; tutoriels</b>.<br>Une question ? Écrivez-nous depuis <b>Support</b>.</div>'
                 f'<img class="ou-logo" src="logo_blanc.png"></div>')
@@ -174,7 +183,7 @@ def scene_html(i, sc, spec, nsteps):
     prog = "".join(f'<i class="{"on" if st and k <= st else ""}"></i>' for k in range(1, nsteps + 1)) if st else ""
     cursor = ('<svg class="cursor" id="cu{i}" viewBox="0 0 44 52"><path d="M4 3 L4 40 L14 31 L21 48 L28 45 L21 29 L35 29 Z" '
               'fill="#0F172A" stroke="#fff" stroke-width="3" stroke-linejoin="round"/></svg><div class="ripple" id="rp{i}"></div>').format(i=i)
-    return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">Tuto {spec["num"]} · {spec["title"]}</span></div>'
+    return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">{chip_label(spec)}</span></div>'
             f'<div class="left" id="lf{i}">{badge}<div class="cap">{sc["caption"]}</div><div class="prog">{prog}</div></div>'
             f'<div class="frame"><div class="vp"><img class="shot" id="im{i}" src="{sc["_img"]}"><div class="ring" id="rg{i}"></div>'
             f'{cursor if sc.get("_click") else ""}</div><span class="demo">{sc.get("badge", "Compte de démonstration")}</span></div></div>')
