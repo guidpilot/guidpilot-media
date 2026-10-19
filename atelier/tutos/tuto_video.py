@@ -150,7 +150,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F6F8FC;font-fam
 def scene_html(i, sc, spec, nsteps):
     aib = '<div class="aib">Voix off générée par IA</div>'
     if sc["type"] == "intro":
-        steps = "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(1, spec.get("total", 5) + 1))
+        steps = "".join(f'<span class="{"cur" if k == spec["num"] else ""}">{k}</span>' for k in range(*(spec.get("range") or (1, spec.get("total", 5) + 1))))
         return (f'<div class="layer dark" id="L{i}">{aib}<img class="in-logo" src="logo_blanc.png">'
                 f'<div class="in-chip">{spec["series"]}</div><div class="in-num">Tutoriel {spec["num"]}</div>'
                 f'<div class="in-title" style="font-size:{min(104, int(1300 / (len(spec["title"]) * 0.52)))}px">{spec["title"]}</div><div class="in-bar" id="bar{i}"></div>'
@@ -177,7 +177,7 @@ def scene_html(i, sc, spec, nsteps):
     return (f'<div class="layer light" id="L{i}">{aib}<div class="hdr"><img src="logo_couleur.png"><span class="chip">Tuto {spec["num"]} · {spec["title"]}</span></div>'
             f'<div class="left" id="lf{i}">{badge}<div class="cap">{sc["caption"]}</div><div class="prog">{prog}</div></div>'
             f'<div class="frame"><div class="vp"><img class="shot" id="im{i}" src="{sc["_img"]}"><div class="ring" id="rg{i}"></div>'
-            f'{cursor if sc.get("_click") else ""}</div><span class="demo">Compte de démonstration</span></div></div>')
+            f'{cursor if sc.get("_click") else ""}</div><span class="demo">{sc.get("badge", "Compte de démonstration")}</span></div></div>')
 
 
 JS = r"""

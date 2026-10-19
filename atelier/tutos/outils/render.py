@@ -30,6 +30,20 @@ def font_faces():
 def prepare(html):
     html = re.sub(r"@font-face\s*\{[^}]*\}", "", html)
     html = html.replace('loading="lazy"', '')
+    # Champs date / heure : affichage français (le Chromium de rendu est en anglais)
+    def _fr(m):
+        tag = m.group(0)
+        t = re.search(r'type="(date|time)"', tag).group(1)
+        v = re.search(r'value="([^"]*)"', tag)
+        val = v.group(1) if v else ""
+        if t == "date":
+            shown = "/".join(reversed(val.split("-"))) if val else "jj/mm/aaaa"
+        else:
+            shown = val[:5] if val else "--:--"
+        tag = re.sub(r'type="(date|time)"', 'type="text"', tag)
+        tag = re.sub(r'\svalue="[^"]*"', "", tag)
+        return tag[:-1] + f' value="{shown}">' if tag.endswith(">") else tag
+    html = re.sub(r'<input[^>]*type="(?:date|time)"[^>]*>', _fr, html)
     return html.replace("</head>", f"<style id='gpfonts'>{font_faces()}</style>"
                         "<style>*{transition:none!important;animation:none!important;caret-color:transparent}"
                         "[data-sonner-toaster]{display:none}</style></head>", 1)
@@ -48,8 +62,8 @@ def render(src, out, scale=2.0, rects=None):
     tmp.write_text(prepare(html))
     found = {}
     with sync_playwright() as p:
-        b = p.chromium.launch()
-        pg = b.new_page(viewport={"width": meta["w"], "height": meta["h"]}, device_scale_factor=scale)
+        b = p.chromium.launch(args=["--lang=fr-FR"])
+        pg = b.new_page(viewport={"width": meta["w"], "height": meta["h"]}, device_scale_factor=scale, locale="fr-FR", timezone_id="Europe/Paris")
         pg.route("**/*", lambda r: r.continue_() if r.request.url.startswith(("file:", "data:")) else r.abort())
         pg.goto(f"file://{tmp}")
         pg.evaluate("document.fonts.ready")
