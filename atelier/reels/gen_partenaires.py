@@ -48,7 +48,7 @@ SPECS = {
    "ex": ("list", ["Logiciels", "Applications", "Formations"], "auto"), "ext": 0.4,
    "say": "Logiciels, applications, formations… Votre audience compte sur vous pour bien choisir."},
   {"k": "shot", "tag": "GUIDPILOT", "title": "Conçu pour la guidance <span>et les thérapeutes</span>", "img": "guid.png", "W": 1270, "box": (430, 150, 1235, 480), "size": 68,
-   "say": "GuidPilot est le seul outil conçu pour les praticiens en guidance et les thérapeutes."},
+   "say": "GuidPilot est un outil conçu pour les praticiens en guidance et les thérapeutes."},
   {"k": "hook2", "title": "Nous cherchons des <span>partenaires</span>", "sub": "qui connaissent ce public", "subt": 0.9, "size": 112,
    "say": "Nous cherchons des partenaires qui connaissent ce public."},
   {"k": "save", "kw": "PARTENAIRE", "q": "et recevez le lien pour candidater",
