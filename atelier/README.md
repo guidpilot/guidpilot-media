@@ -2,6 +2,14 @@
 
 Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le lot de la semaine.
 
+## ⭐⭐ STYLE ET ACCROCHE — décisions de Normane du 21, 22 et 25/10/2026 (PRIORITAIRE, s'ajoute à la V2)
+
+- **Aucune personne représentée** (21/10/2026) : ni dessin, ni photo, ni image IA, ni banque d'images. Les scènes se racontent par le texte animé, des éléments d'interface (téléphone, notifications, bulles, agenda, factures) et les vraies captures du compte de démonstration.
+- **Aucun superlatif** (22/10/2026) : jamais « le seul », « le meilleur », « n°1 ». Formule : « un outil conçu pour les praticiens en guidance et les thérapeutes ».
+- **Varier les styles** (25/10/2026 — « on a l'impression que c'est toujours pareil ») : jamais deux fois le même gabarit d'affilée sur un même réseau ; sur une semaine, au moins 3 gabarits visuels différents et 4 formats différents. Gabarits : **V2** (`reels/gen_v2.py`, `gen_promos.py`, `gen_tiktok_demos.py` : marine/clair + cartes + captures) et **V3** (`reels/gen_tiktok_v3.py` : fonds unis qui changent à chaque plan crème/or/marine/bleu, texte géant mot par mot surligné or, barre de progression façon story, téléphone + notifications, grande liste numérotée, tuiles, cadenas, fin sur une question). V3 marche aussi pour les Reels Instagram (ajouter la fin « Commentez MOT-CLÉ » / « Enregistrez-la » selon la V2). Créer de nouveaux gabarits est encouragé (charte GuidPilot, aucune personne).
+- **Accroche en boucle ouverte** (25/10/2026 — « au début, un hook qui donne envie de voir le reste ») : la 1re image et la 1re phrase posent une question ou une promesse que seule la suite résout (« Votre cliente a oublié son rendez-vous. Et ce n'est pas elle, le problème. » ; « Séance en visio : 3 messages que vous n'écrivez plus. » ; « Ce que voit votre cliente quand elle se connecte… le dernier point va vous rassurer. » ; « « Je vous fais le virement ce soir. » Vous connaissez la suite. »). 5 à 10 mots en très gros, la voix commence par cette phrase, relances en cours de vidéo (« Deux… », « Et le dernier… »).
+- Skill de référence : `guidpilot-communication` (mis à jour le 25/10/2026 avec ces règles).
+
 ## ⭐ LIGNE ÉDITORIALE V2 — en vigueur depuis le 15/10/2026 (PRIORITAIRE sur tout le reste de ce fichier)
 
 Décidée avec Normane le 15/10/2026 après analyse Metricool : ~22 abonnés, portée moyenne 9 personnes par Reel et 5 par post, 2 à 10 s de visionnage moyen, 0 partage et 0 enregistrement, 4 à 5 posts par jour dont des doublons. Diagnostic : trop de volume, trop de pub, accroches trop lentes, contenus répétés. **Moins, mieux, plus utile.**
