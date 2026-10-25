@@ -129,6 +129,7 @@ npm ci   # hyperframes, gsap
 pip install playwright --break-system-packages 2>/dev/null || true
 export PRODUCER_HEADLESS_SHELL_PATH=$(ls -d /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell | head -1)
 export HYPERFRAMES_BROWSER_PATH=$PRODUCER_HEADLESS_SHELL_PATH
+# 25/10/2026 : si le chemin ci-dessus est vide, utiliser /opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell (ne pas lancer « hyperframes browser ensure » : téléchargement bloqué).
 ```
 Rendu : `cd build/<nom> && npx hyperframes lint && npx hyperframes render --output ../<nom>.mp4` (vérifier avec `npx hyperframes snapshot` + regarder les images).
 
