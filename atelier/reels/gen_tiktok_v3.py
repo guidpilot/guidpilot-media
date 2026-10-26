@@ -177,6 +177,8 @@ const tl=gsap.timeline({{paused:true}});
 {chr(10).join(jss)}
 window.__timelines["main"]=tl;
 </script></body></html>'''
+    import mid_cta  # CTA de mi-vidéo (26/10/2026) : TikTok → « Enregistrez-la » ; Reel IG en V3 → mot-clé si "mot"/"kw"
+    page = mid_cta.apply(page, [sc["t"] for sc in scs], dur, mid_cta.label_for(spec))
     d = gc.BASE / "build" / spec["slug"]
     if d.exists(): shutil.rmtree(d)
     (d / "assets").mkdir(parents=True)

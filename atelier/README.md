@@ -2,6 +2,16 @@
 
 Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le lot de la semaine.
 
+## ⭐⭐⭐ CTA DE MI-VIDÉO — décision de Normane du 26/10/2026 (PRIORITAIRE)
+
+Constat : le CTA n'était qu'à la fin des vidéos, alors que la majorité des gens décrochent avant.
+- **Une seule action demandée, montrée deux fois** : un bandeau discret vers **35-40 % de la vidéo**, puis l'écran de fin habituel.
+- Le bandeau arrive **après une première info utile**, jamais pendant l'accroche ni pendant l'écran de fin. Il reste ~3,5 s, **à l'écran seulement** (la voix n'est pas coupée), en zone sûre (y 1360 → 1490, x 60 → 930).
+- Texte = la même action que la fin : Reel Instagram promo → « 💬 Commentez GUIDANCE / THÉRAPEUTE » ; conseil et TikTok → « 🔖 Enregistrez-la pour plus tard » ; vidéo dont la fin est l'offre → « 👉 14 jours gratuits · lien en bio ».
+- **Automatique** dans `reels/gen_v2.py`, `gen_tiktok_v3.py`, `gen_conseils.py` (donc `gen_promos.py`) et `gen_manychat.py`, via `reels/mid_cta.py`. Désactiver : `"mid_cta": False` dans la spec ; texte forcé : `"mid_cta": "…"`. Le générateur affiche dans la console l'heure et le texte du bandeau : le vérifier.
+- **YouTube long** : CTA oral vers 25-35 % (abonnement + lien en description pour l'essai), après le premier conseil utile, puis l'écran de fin.
+- **Mesure** : sur 2 semaines, comparer dans Metricool les commentaires avec mot-clé, les enregistrements et la rétention, avant/après le 26/10/2026.
+
 ## ⭐⭐ STYLE ET ACCROCHE — décisions de Normane du 21, 22 et 25/10/2026 (PRIORITAIRE, s'ajoute à la V2)
 
 - **Aucune personne représentée** (21/10/2026) : ni dessin, ni photo, ni image IA, ni banque d'images. Les scènes se racontent par le texte animé, des éléments d'interface (téléphone, notifications, bulles, agenda, factures) et les vraies captures du compte de démonstration.

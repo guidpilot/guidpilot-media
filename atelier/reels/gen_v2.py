@@ -71,6 +71,8 @@ def build(spec, voix):
     for im in gp.IMGS:
         shutil.copy(gc.SRC / "assets" / im, d / "assets" / im)
     html = gc.page(dur, "\n".join(bodies), "\n".join(jss), "voix.wav").replace("</style>", gc.EXTRA + gp.PCSS + EXTRA_V2 + "</style>", 1)
+    import mid_cta  # CTA de mi-vidéo (26/10/2026) : même action que la scène finale, vers 35-40 %
+    html = mid_cta.apply(html, [sc["t"] for sc in scs], dur, mid_cta.label_for(spec))
     (d / "index.html").write_text(html)
     print("ok", d, "durée", dur)
 

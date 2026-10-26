@@ -158,6 +158,8 @@ def build(spec, voix):
     shutil.copy(voix, d / "assets" / "voix.wav")
     shutil.copy(BASE / "reels" / "ambient30.wav", d / "assets" / "ambient.wav")
     html = page(dur, "\n".join(bodies), js, "voix.wav").replace("Lien en bio ↓", "Lien en bio · guidpilot.fr").replace("</style>", EXTRA + "</style>", 1)
+    import mid_cta  # CTA de mi-vidéo (26/10/2026)
+    html = mid_cta.apply(html, [sc["t"] for sc in scs] + [cta_t], dur, mid_cta.label_for(spec, mid_cta.OFFER))  # même action que l'écran de fin (offre 14 jours)
     (d / "index.html").write_text(html)
     print("ok", d)
 

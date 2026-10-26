@@ -166,6 +166,8 @@ def build(slug, voix):
     shutil.copy(voix, d / "assets" / "voix.wav")
     shutil.copy(gc.BASE / "reels" / "ambient30.wav", d / "assets" / "ambient.wav")
     html = gc.page(DUR, "\n".join(bodies), js, "voix.wav").replace("</style>", gc.EXTRA + gp.PCSS + CTA_CSS + MC_CSS + "</style>", 1)
+    import mid_cta  # CTA de mi-vidéo (26/10/2026)
+    html = mid_cta.apply(html, [t0 for _, t0 in SCENES] + [CTA_T], DUR, mid_cta.label_for({"mot": spec["mot"], **{k: v for k, v in spec.items() if k == "mid_cta"}}))
     (d / "index.html").write_text(html)
     print("ok", d)
 
