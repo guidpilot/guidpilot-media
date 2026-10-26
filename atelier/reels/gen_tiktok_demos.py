@@ -9,6 +9,9 @@ from tiktok_demos_specs import SPECS
 
 if __name__ == "__main__":
     spec = SPECS[sys.argv[1]]
+    # CTA de mi-vidéo (26/10/2026) : même action que la fin « 14 jours gratuits » (scène brand)
+    if spec["scenes"][-1]["k"] == "brand":
+        spec.setdefault("mid_cta", ("👉", "Testez <span>14 jours gratuits</span>"))
     gen_v2.build(spec, sys.argv[2])
     d = gc.BASE / "build" / spec["slug"]
     shutil.copy(gc.SRC / "assets" / "logo_blanc.png", d / "assets" / "logo_blanc.png")  # logo officiel pour la scène brand
