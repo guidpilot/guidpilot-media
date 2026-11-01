@@ -133,7 +133,7 @@ def align(spec, voix):
         ts.append(near if abs(near - est) < 1.3 else est)
         acc += L
     ts[0] = 0.0
-    for sc, t in zip(spec["scenes"], ts): sc["t"] = round(max(0, t - 0.12), 2)
+    for sc, t in zip(spec["scenes"], ts): sc["t"] = sc.get("at", round(max(0, t - 0.12), 2))  # "at" = calage manuel (01/11/2026)
     spec["cta"] = round(s1 + 0.35, 2); spec["dur"] = round(spec["cta"] + 4.6, 2)
     print(spec["slug"], "voix", total, "scènes", [sc["t"] for sc in spec["scenes"]], "cta", spec["cta"], "durée", spec["dur"])
 

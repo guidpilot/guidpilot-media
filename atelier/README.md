@@ -2,6 +2,18 @@
 
 Ce dossier contient tout ce qu'il faut pour produire, dans une session neuve, le lot de la semaine.
 
+## ⭐⭐⭐⭐ RÈGLES EN VIGUEUR DU LOT HEBDOMADAIRE (mises à jour le 01/11/2026 — PRIORITAIRES sur tout le reste de ce fichier)
+
+- **Rythme (Normane, 20/10/2026, remplace « 2 posts par jour » du 17/10)** : **1 seul post Instagram par jour**, 7 j/7. Carrousels **10h00**, Reels **18h00** (+ YouTube Short, même post Metricool). Lun Reel CONSEIL · mar carrousel CONSEIL · **mer Reel PROMO série métier (guidance)** · jeu carrousel CONSEIL · ven Reel CONSEIL · **sam carrousel PROMO série métier (thérapeutes)** · dim Reel CONSEIL. Public : guidance lun/mer/ven/dim, thérapeutes mar/jeu/sam. Un jour déjà occupé par un post n'en reçoit pas un 2e (on ne touche pas au post existant). Revérifier getBestTimeToPostByNetwork à chaque lot.
+- **Analyse du 20/10/2026** (doc projet `communication/13-analyse-performances-2026-10-20.md`) : portée 2 à 67 par Reel, 2 à 5 s de visionnage → tout se joue sur la 1re image et la 1re phrase ; le seul succès était un message sincère de fondateur ; légendes courtes (accroche ≤ 125 car. + 2–3 lignes + question) ; Reels 15–25 s.
+- **Stories** : 13/semaine — 12h30 et 20h00 du lundi au samedi, 12h30 le dimanche (20h00 = teaser du post du jour).
+- **Prononciation** : « Guide Pilote » écrit dans le texte de la voix off ; « GuidPilot » à l'écran.
+- **LIMITE YOUTUBE (20/10/2026)** : au maximum **4 vidéos YouTube par jour** (Shorts + vidéo longue mar/ven 18h30 + tutoriels non répertoriés). Si dépassement : décaler les tutoriels non répertoriés (14h00), jamais les Shorts.
+- **Série « Pensé pour votre métier » (22/10/2026)** : mercredi (Reel, métier de la guidance) et samedi (carrousel, métier thérapeute), un métier par post en rotation ; accroche-question sur un besoin du métier → parcours en 3–4 étapes sur captures démo → « Un outil pensé pour votre métier, pas un agenda de plus. » Aucun dénigrement, aucun superlatif, outil tiers seulement cité de façon neutre et sans logo. Métiers déjà faits : **04/11 voyante/médium en visio (Reel), 07/11 sophrologue (carrousel « 6 questions »)**.
+- **ManyChat gratuit (26/10/2026)** : actifs = commentaires GUIDANCE, THÉRAPEUTE, PARTENAIRE + réponse story THÉRAPEUTE. **Jamais « Répondez GUIDANCE à cette story »**, jamais « GuidPilot » comme mot-clé.
+- **Nouveau (01/11/2026)** : `reels/gen_tiktok_v3.py` accepte `"static": True` sur la scène `hook` → accroche lisible dès la frame 0 (obligatoire pour les Reels Instagram en V3) ; `gen_conseils.align` accepte `"at": <secondes>` sur une scène pour un calage manuel sur la voix. Pour tenir 15–25 s, la voix peut être accélérée de 5 % (`ffmpeg -af atempo=1.05`). Carrousels : `carrousels/gen_semaine_2026-11-02.py` (formats `myth()` mythe/réalité et `quest()` questions de la série métier).
+- Thèmes de la semaine du 02 au 08/11/2026 (ne pas reprendre tels quels) : Reel avis demandé trop tard (V3) ; Reel voyante en visio, série métier (V2) ; carrousel acompte, 5 idées reçues (thérapeutes) ; Reel novembre calme, ne baissez pas vos prix (V3) ; carrousel sophrologue 6 questions (série métier) ; Reel « Dites-moi juste que ça va marcher » (V2). Stories : question avant la séance, relire ses notes 5 min avant, écrit ou vocal ?, phrase de cliente qui déstabilise, 4 actions un seul écran, THÉRAPEUTE ×2.
+
 ## ⭐⭐⭐ CTA DE MI-VIDÉO — décision de Normane du 26/10/2026 (PRIORITAIRE)
 
 Constat : le CTA n'était qu'à la fin des vidéos, alors que la majorité des gens décrochent avant.

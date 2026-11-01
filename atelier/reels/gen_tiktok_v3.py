@@ -79,8 +79,14 @@ def words(txt, size, top, pal, sid, color=None):
     return html.replace(" ?", "&nbsp;?").replace(" !", "&nbsp;!"), ids, hls
 
 
-def kin_js(ids, hls, t, step=0.11):
+def kin_js(ids, hls, t, step=0.11, static=False):
     js = []
+    if static:  # accroche lisible dès la frame 0 (Reels Instagram, 01/11/2026) : pas d'apparition mot par mot
+        for i in ids:
+            js.append(f'tl.fromTo("#{i}",{{opacity:1,y:14}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},{t:.2f});')
+        for i in hls:
+            js.append(f'tl.fromTo("#{i}",{{"--s":1}},{{"--s":1,duration:.1}},{t:.2f});')
+        return js
     for k, i in enumerate(ids):
         js.append(f'tl.fromTo("#{i}",{{opacity:0,y:70,rotate:4}},{{opacity:1,y:0,rotate:0,duration:.32,ease:"back.out(2)"}},{t + k * step:.2f});')
     for k, i in enumerate(hls):
@@ -99,7 +105,7 @@ def scene(i, sc, t0, t1, nseg):
         js.append(f'tl.fromTo("#{sid}e",{{opacity:0,x:-40}},{{opacity:1,x:0,duration:.35,ease:"power3.out"}},{t0 + .05:.2f});')
     if k in ("hook", "words"):
         h, ids, hls = words(sc["title"], sc.get("size", 132), sc.get("top", 520) + 140, pal, sid)
-        body.append(h); js += kin_js(ids, hls, t0 + (0.0 if k == "hook" else .1), sc.get("step", .11))
+        body.append(h); js += kin_js(ids, hls, t0 + (0.0 if k == "hook" else .1), sc.get("step", .11), static=bool(sc.get("static")))
         if sc.get("sub"):
             body.append(f'<div class="small" id="{sid}u" style="top:{sc.get("subtop", 1180) + 140}px;color:{fg};opacity:.82">{H.escape(sc["sub"])}</div>')
             js.append(f'tl.fromTo("#{sid}u",{{opacity:0,y:30}},{{opacity:.82,y:0,duration:.4,ease:"power3.out"}},{t0 + sc.get("subt", 1.2):.2f});')
@@ -253,6 +259,40 @@ SPECS = {
    "say": "Et vous n'avez plus à relancer personne."},
   {"k": "end", "bg": "marine", "title": "Combien de virements attendez-vous <span style=\"color:#E9C46A\">en ce moment&nbsp;?</span>",
    "say": "Combien de virements attendez-vous, en ce moment ?"},
+ ]},
+# ---------- Reels Instagram V3, semaine du 02 au 08/11/2026 ----------
+"lun-02-avis": {"slug": "lun-02_reel-avis-moment", "music": "aube", "scenes": [
+  {"k": "hook", "static": True, "bg": "marine", "title": "Elle a adoré sa guidance. [Pourtant,] aucun avis.", "size": 120, "top": 450,
+   "sub": "Le problème, c'est le moment.", "subt": 1.9, "subtop": 1080,
+   "say": "Elle a adoré sa guidance. Pourtant, aucun avis. Le problème, c'est le moment."},
+  {"k": "words", "bg": "or", "title": "L'erreur : demander [un mois après.]", "size": 130, "top": 540,
+   "say": "L'erreur : demander un mois plus tard. Elle a oublié les détails."},
+  {"k": "num", "bg": "creme", "n": "1", "title": "Le [lendemain] de la séance", "sub": "Ses mots sont encore frais.",
+   "say": "Le bon moment : le lendemain, quand ses mots sont encore frais."},
+  {"k": "num", "bg": "bleu", "n": "2", "title": "Un message [court,] avec son prénom", "size": 104,
+   "say": "Un message court, avec son prénom."},
+  {"k": "notifs", "at": 13.95, "bg": "creme", "title": "Dans GuidPilot, [sans relance à la main]", "size": 80, "clock": "10:12", "date": "mardi 3 novembre",
+   "items": [("★", "E-mail · GuidPilot", "Votre avis compte", "Partagez votre expérience en 1 minute"),
+             ("✓", "GuidPilot", "Nouvel avis reçu", "Visible sur votre page publique")],
+   "say": "Dans Guide Pilote, la demande d'avis part depuis votre espace, et l'avis publié s'affiche sur votre page."},
+  {"k": "end", "bg": "marine", "title": "Et vous, quand demandez-vous <span style=\"color:#E9C46A\">un avis&nbsp;?</span>",
+   "save": "🔖 Enregistrez-la pour plus tard", "say": "Enregistrez cette vidéo. Et vous, quand demandez-vous un avis ?"},
+ ]},
+"ven-06-novembre": {"slug": "ven-06_reel-novembre-calme", "music": "elan", "scenes": [
+  {"k": "hook", "static": True, "bg": "or", "title": "Agenda vide en novembre ? [Ne baissez pas] vos prix.", "size": 118, "top": 450,
+   "sub": "Faites plutôt ces 3 choses.", "subt": 2.0, "subtop": 1100,
+   "say": "Agenda vide en novembre ? Ne baissez pas vos prix. Faites plutôt ces trois choses."},
+  {"k": "num", "bg": "creme", "n": "1", "title": "Écrivez à vos [anciennes clientes]", "sub": "Simplement, sans promotion.",
+   "say": "Un : écrivez à vos anciennes clientes. Simplement, sans promotion."},
+  {"k": "num", "bg": "marine", "n": "2", "title": "Partagez [votre lien] de réservation", "sub": "En story et dans votre bio.",
+   "say": "Deux : partagez votre lien de réservation, en story et en bio."},
+  {"k": "num", "bg": "bleu", "n": "3", "title": "Ouvrez [décembre] dès maintenant", "size": 104, "sub": "Les fêtes se réservent tôt.", "subtop": 1250,
+   "say": "Trois : ouvrez vos créneaux de décembre. Les fêtes se réservent tôt."},
+  {"k": "tiles", "bg": "marine", "title": "Dans [GuidPilot]",
+   "items": [("👤", "L'historique de chaque cliente"), ("🔗", "Votre page de réservation"), ("📅", "Vos disponibilités"), ("✉", "Rappels envoyés seuls")],
+   "say": "Dans Guide Pilote, l'historique de chaque cliente vous montre qui n'est pas revenue."},
+  {"k": "end", "bg": "marine", "title": "Novembre, chez vous, <span style=\"color:#E9C46A\">c'est calme&nbsp;?</span>",
+   "save": "🔖 Enregistrez-la pour plus tard", "say": "Enregistrez cette vidéo. Novembre, chez vous, c'est calme ?"},
  ]},
 }
 
