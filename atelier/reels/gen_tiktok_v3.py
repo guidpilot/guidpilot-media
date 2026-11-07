@@ -59,6 +59,14 @@ CSS = gc.CSS.split(".navy{")[0] + """
 .endq{position:absolute;left:0;right:0;font-weight:800;font-size:96px;line-height:1.05;letter-spacing:-.03em;color:#fff}
 .endlogo{position:absolute;left:0;width:330px}
 .save{position:absolute;left:0;font-weight:700;font-size:40px;color:#E9C46A}
+.shotc{position:absolute;left:0;width:840px;border-radius:40px;overflow:hidden;background:#fff;box-shadow:0 40px 90px rgba(15,23,42,.35);border:6px solid rgba(255,255,255,.7)}
+.shotc img{display:block;width:100%;height:auto}
+.shotc .tag{position:absolute;left:24px;bottom:22px;background:rgba(15,23,42,.78);color:#E2E8F0;font-weight:600;font-size:24px;padding:8px 18px;border-radius:999px}
+.chk{position:absolute;left:0;display:flex;align-items:center;gap:16px;background:#F2FAF4;border:4px solid #BFE3C9;border-radius:999px;padding:10px 30px 10px 16px;font-weight:800;font-size:36px;color:#166534;white-space:nowrap}
+.chk i{display:inline-grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#16A34A;color:#fff;font-style:normal;font-size:34px}
+.endad{position:absolute;left:0;right:0;font-weight:800;font-size:92px;line-height:1.04;letter-spacing:-.03em;color:#fff}
+.endsub{position:absolute;left:0;right:0;font-weight:700;font-size:46px;line-height:1.3;color:#E9C46A}
+.endpill{position:absolute;left:0;background:#E9C46A;color:#0F172A;font-weight:800;font-size:46px;padding:26px 44px;border-radius:999px}
 """
 
 
@@ -146,6 +154,28 @@ def scene(i, sc, t0, t1, nseg):
         body.append(h); js += kin_js(ids, hls, t0 + .05, .09)
         body.append(f'<div class="lockc" id="{sid}l" style="top:{sc.get("ltop", 760)}px"><div class="k">🔒</div><div class="t">{sc["card"]}</div><div class="s">{H.escape(sc["note"])}</div></div>')
         js.append(f'tl.fromTo("#{sid}l",{{opacity:0,y:90}},{{opacity:1,y:0,duration:.5,ease:"back.out(1.5)"}},{t0 + .7:.2f});')
+    elif k == "shot":
+        h, ids, hls = words(sc["title"], sc.get("size", 92), 300, pal, sid)
+        body.append(h); js += kin_js(ids, hls, t0 + .05, .08)
+        body.append(f'<div class="shotc" id="{sid}s" style="top:{sc.get("stop", 600)}px;height:{sc.get("sh", 500)}px"><img src="assets/{sc["img"]}" alt="" style="{sc.get("imgstyle", "")}" /><div class="tag">Compte de démonstration</div></div>')
+        js.append(f'tl.fromTo("#{sid}s",{{y:160,opacity:0,scale:.96}},{{y:0,opacity:1,scale:1,duration:.55,ease:"power3.out"}},{t0 + .2:.2f});')
+        if sc.get("img2"):
+            body.append(f'<div class="shotc" id="{sid}s2" style="top:{sc.get("stop", 600)}px;height:{sc.get("sh", 500)}px;opacity:0"><img src="assets/{sc["img2"]}" alt="" style="{sc.get("img2style", "")}" /><div class="tag">Compte de démonstration</div></div>')
+            js.append(f'tl.to("#{sid}s2",{{opacity:1,duration:.4}},{t0 + (t1 - t0) * .55:.2f});')
+        chks = sc.get("checks", [])
+        span = max(.5, (t1 - t0 - 1.2) / max(1, len(chks)))
+        for n, lab in enumerate(chks):
+            body.append(f'<div class="chk" id="{sid}c{n}" style="top:{sc.get("ctop", 1140) + n * 84}px"><i>✓</i>{H.escape(lab)}</div>')
+            js.append(f'tl.fromTo("#{sid}c{n}",{{opacity:0,x:-60}},{{opacity:1,x:0,duration:.4,ease:"back.out(1.5)"}},{t0 + .9 + n * span:.2f});')
+    elif k == "endad":
+        body.append(f'<div class="endad" id="{sid}q" style="top:{sc.get("top", 520)}px">{sc["title"]}</div>')
+        js.append(f'tl.fromTo("#{sid}q",{{opacity:0,y:60}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},{t0 + .05:.2f});')
+        body.append(f'<div class="endpill" id="{sid}p" style="top:{sc.get("ptop", 1000)}px">{H.escape(sc.get("pill", "14 jours gratuits"))}</div>')
+        js.append(f'tl.fromTo("#{sid}p",{{opacity:0,scale:.8}},{{opacity:1,scale:1,duration:.45,ease:"back.out(1.6)"}},{t0 + .7:.2f});')
+        body.append(f'<div class="endsub" id="{sid}u" style="top:{sc.get("subtop", 1130)}px">{H.escape(sc.get("sub", "Sans carte bancaire · Sans engagement"))}</div>')
+        js.append(f'tl.fromTo("#{sid}u",{{opacity:0,y:30}},{{opacity:1,y:0,duration:.4}},{t0 + 1.1:.2f});')
+        body.append(f'<img class="endlogo" id="{sid}g" src="assets/logo_blanc.png" alt="GuidPilot" style="top:1300px" />')
+        js.append(f'tl.fromTo("#{sid}g",{{opacity:0}},{{opacity:1,duration:.5}},{t0 + 1.3:.2f});')
     elif k == "end":
         body.append(f'<div class="endq" id="{sid}q" style="top:{sc.get("top", 640)}px">{sc["title"]}</div>')
         js.append(f'tl.fromTo("#{sid}q",{{opacity:0,y:60}},{{opacity:1,y:0,duration:.5,ease:"power3.out"}},{t0 + .05:.2f});')
@@ -191,6 +221,9 @@ window.__timelines["main"]=tl;
     for sub in ("fonts", "vendor"): shutil.copytree(gc.SRC / sub, d / sub)
     for f in ("hyperframes.json", "meta.json"): shutil.copy(gc.SRC / f, d / f)
     shutil.copy(gc.SRC / "assets" / "logo_blanc.png", d / "assets" / "logo_blanc.png")
+    for sc in scs:
+        for key in ("img", "img2"):
+            if sc.get(key): shutil.copy(gc.SRC / "assets" / sc[key], d / "assets" / sc[key])
     shutil.copy(voix, d / "assets" / "voix.wav")
     (d / "index.html").write_text(page)
     print("ok", d, "durée", dur)
