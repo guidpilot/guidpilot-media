@@ -38,6 +38,8 @@ def scene(i, sc, t0, t1):
     if k == "save":
         if sc.get("kw"):
             ic, t = "💬", f'Commentez <span style="color:#E9C46A">{sc["kw"]}</span>'
+        elif sc.get("offer"):  # 09/11/2026 : fin « offre » (ex. offre fondatrice 1 an pour 99 €), lien en bio
+            ic, t = sc.get("ic", "🎁"), sc["offer"]
         else:
             ic, t = "🔖", "Enregistrez-la pour plus tard"
         body = f'''<div class="center" style="top:520px"><div class="savebox" id="{sid}b"><div class="ic">{ic}</div><div class="t">{t}</div>
