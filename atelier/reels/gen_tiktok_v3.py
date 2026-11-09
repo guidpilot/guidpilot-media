@@ -113,7 +113,11 @@ def scene(i, sc, t0, t1, nseg):
         js.append(f'tl.fromTo("#{sid}e",{{opacity:0,x:-40}},{{opacity:1,x:0,duration:.35,ease:"power3.out"}},{t0 + .05:.2f});')
     if k in ("hook", "words"):
         h, ids, hls = words(sc["title"], sc.get("size", 132), sc.get("top", 520) + 140, pal, sid)
-        body.append(h); js += kin_js(ids, hls, t0 + (0.0 if k == "hook" else .1), sc.get("step", .11), static=bool(sc.get("static")))
+        # 09/11/2026 : l'accroche est STATIQUE PAR DÉFAUT (lisible dès la frame 0). TikTok prend la 1re image comme
+        # couverture et Metricool n'en choisit pas d'autre → avec le mot-par-mot, la grille du profil n'affichait que
+        # des fonds unis. "static": False pour forcer l'ancien mot-par-mot (déconseillé).
+        static = bool(sc.get("static", k == "hook"))
+        body.append(h); js += kin_js(ids, hls, t0 + (0.0 if k == "hook" else .1), sc.get("step", .11), static=static)
         if sc.get("sub"):
             body.append(f'<div class="small" id="{sid}u" style="top:{sc.get("subtop", 1180) + 140}px;color:{fg};opacity:.82">{H.escape(sc["sub"])}</div>')
             js.append(f'tl.fromTo("#{sid}u",{{opacity:0,y:30}},{{opacity:.82,y:0,duration:.4,ease:"power3.out"}},{t0 + sc.get("subt", 1.2):.2f});')
