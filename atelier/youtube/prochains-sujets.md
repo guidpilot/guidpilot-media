@@ -2,6 +2,53 @@
 
 Quand un sujet est traité : le passer en « [x] » avec la date, et l'ajouter à « Sujets déjà traités » du README.
 
+## ⭐ PROGRAMME DU 17/11 AU 31/12/2026 — demande de Normane du 15/11/2026 (PRIORITAIRE sur tout le reste de ce fichier)
+
+Demande de Normane : alimenter la chaîne avec de **vraies vidéos (pas des Shorts), bien référencées, avec de bons titres** du type « Comment gagner du temps grâce à une solution pour les thérapeutes », qui **présentent GuidPilot et son offre**, et mettre en avant **l'offre de Noël, « très importante »**.
+
+Règles de ce programme (elles priment sur « 2 conseils pour 1 tuto/promo » et sur « GuidPilot seulement en fin de vidéo ») :
+
+1. **Traiter les sujets ci-dessous dans l'ordre**, en prenant le premier non coché qui correspond au public du jour (mardi = thérapeutes, vendredi = guidance).
+2. **Titre = la requête que la niche tape dans YouTube**, placée au début (« Logiciel pour… », « Comment gagner du temps… », « Comment… »), 60 à 90 caractères, sans nom de marque au début. Description : la requête reprise dans les 2 premières lignes, lien en 1re ligne, chapitres dont les intitulés contiennent de vrais mots-clés, 12–16 tags.
+3. **Chaque vidéo reste utile dès les 10 premières secondes** (une situation vécue, puis ce que la personne saura faire à la fin). Une présentation qui ne fait que lister des fonctions ne retient personne : montrer le temps gagné sur une journée réelle, étape par étape, avec les captures du compte de démonstration.
+4. **Offre de Noël dans TOUTES les vidéos longues jusqu'au 31/12/2026 inclus** (exception validée par Normane, voir README en tête et le document de projet `claude/offre-fondatrice-decision-2026-11-09.md`) :
+   - faits autorisés, à ne jamais modifier : 1 an de GuidPilot pour **99 € payés une seule fois**, au lieu de 29 €/mois soit 348 € sur un an ; **jusqu'au 31 décembre** ; **aucun prélèvement automatique** ; l'essai de 14 jours sans carte bancaire reste l'entrée ; à la fin de l'année, on choisit (renouveler, passer au mois, ou arrêter en gardant ses données en lecture) ;
+   - le prix 99 € et la date peuvent être dits dans la voix et affichés à l'écran ;
+   - vidéos [présentation] et [conseil] : rappel oral d'une phrase vers 25–35 % (avec l'appel à s'abonner), puis 20 à 30 s en fin de vidéo ; vidéos [offre de Noël] : l'offre est le sujet ;
+   - description : 1re ligne « 🎁 Jusqu'au 31 décembre : 1 an de GuidPilot pour 99 €, payé une fois → https://guidpilot.fr/offre-fondatrice », puis « 14 jours gratuits, sans carte bancaire : https://guidpilot.fr » ;
+   - écran de fin : « 1 an pour 99 € · jusqu'au 31 décembre · guidpilot.fr/offre-fondatrice » + « Abonnez-vous : 2 vidéos par semaine » ;
+   - interdits inchangés : jamais 49 € ni 69 €, ne jamais laisser entendre que le 29 €/mois augmentera, aucun superlatif, aucun chiffre inventé (pas de « déjà X praticiennes »), aucune personne représentée, pas de « places limitées ».
+5. **À partir du 01/01/2027** : plus aucune mention de l'offre de Noël ; retour à « 14 jours gratuits, sans carte bancaire » et aux règles habituelles.
+
+Sujets :
+
+- [ ] **[thérapeutes · présentation] Logiciel pour thérapeute : comment gagner du temps sur vos rendez-vous, paiements et factures** (prévu mardi 17/11)
+  - Sophrologue, praticienne Reiki, hypnothérapeute, réflexologue. Fil conducteur : une journée de cabinet, « avant » (messages pour caler une séance, paiement à vérifier, facture faite le soir, compte rendu envoyé par e-mail) puis « avec GuidPilot », tâche par tâche : la cliente réserve et règle seule, rappel par e-mail, notes privées, compte rendu dans son espace, facture numérotée automatique, demande d'avis.
+  - Faire faire le calcul à la personne (« 20 minutes par jour, cela fait combien d'heures par mois ? ») sans annoncer de chiffre de gain garanti. Aucun vocabulaire médical.
+  - Tags à inclure : logiciel thérapeute, logiciel sophrologue, logiciel Reiki, logiciel hypnothérapeute, gestion cabinet bien-être, prise de rendez-vous en ligne thérapeute, facturation thérapeute, gagner du temps thérapeute.
+- [ ] **[guidance · présentation] Tarologue, voyante, médium : comment gagner du temps dans la gestion de vos consultations** (prévu vendredi 20/11)
+  - Angle différent de « Logiciel pour tarologue et voyante » (22/10) et de « médium et énergéticienne » (06/11) : ici le temps perdu, du premier message à la guidance livrée. Demandes en message privé le soir, virement à vérifier, guidance vocale envoyée par messagerie puis introuvable, facture à la main → la même consultation avec GuidPilot.
+  - Tags : logiciel tarologue, logiciel voyante, logiciel médium, logiciel guidance, gestion consultations voyance, paiement en ligne voyance, guidance vocale, gagner du temps tarologue.
+- [ ] **[thérapeutes · offre de Noël] Logiciel de gestion pour sophrologue, Reiki, hypnose : 1 an pour 99 €, ce que cela comprend** (prévu mardi 24/11)
+  - L'offre est le sujet : ce qui est compris (toutes les fonctions de l'abonnement), comment cela se passe concrètement (essai 14 jours, puis un seul paiement, aucun prélèvement automatique), et ce qui se passe à la fin de l'année (les 3 choix). Montrer les écrans réels. Ton de fondateur sincère : pourquoi cette offre pour les premières praticiennes.
+  - Accroche possible : « 99 €, c'est souvent le prix d'une ou deux séances. » (à formuler comme une comparaison que la personne fait elle-même, jamais comme une promesse de rentabilité).
+- [ ] **[guidance · offre de Noël] Logiciel pour tarologue et voyante : 1 an pour 99 €, l'offre de Noël expliquée** (prévu vendredi 27/11)
+  - Même contenu, réécrit pour la guidance (consultations à distance, guidances écrites et vocales, page publique avec avis). Jamais une copie du texte thérapeutes.
+- [ ] **[thérapeutes · conseil] Cartes cadeaux pour thérapeute : comment proposer une séance de Reiki ou de sophrologie à offrir à Noël** (prévu mardi 01/12)
+  - Conseil utile même sans GuidPilot : quelle prestation proposer en cadeau, durée de validité à écrire, comment l'annoncer à ses clientes, message prêt à copier. Puis les cartes cadeaux dans GuidPilot (vérifier d'abord sur le compte de démonstration ce que voit la cliente ; ne montrer que ce qui existe).
+- [ ] **[guidance · conseil] Carte cadeau voyance et tarot : comment proposer une guidance à offrir à Noël** (prévu vendredi 04/12)
+  - Version guidance, texte réécrit. Aucune promesse de prédiction.
+- [ ] **[thérapeutes · présentation] Créer sa page de thérapeute et son lien de réservation en 10 minutes** (prévu mardi 08/12)
+  - Le plan en 3 étapes : créer son compte, ajouter ses prestations, partager son lien. Démo écran pur, étape par étape. Idéal pour « démarrer janvier équipée ».
+- [ ] **[guidance · présentation] Créer sa page de tarologue ou de voyante avec réservation et paiement en ligne** (prévu vendredi 11/12)
+  - Même plan en 3 étapes, version guidance (une prestation par format : visio, guidance écrite, guidance vocale).
+- [ ] **[thérapeutes · offre de Noël] Thérapeute : préparer votre cabinet pour janvier (agenda, tarifs, factures)** (prévu mardi 15/12)
+  - Conseil « bilan et rentrée de janvier » (3 choses à mettre en place avant le 1er janvier), l'offre en fin de vidéo, angle « le cadeau que vous vous faites ».
+- [ ] **[guidance · offre de Noël] Tarologue, voyante : préparer votre activité pour janvier** (prévu vendredi 18/12)
+- [ ] **[thérapeutes · offre de Noël] Logiciel pour thérapeute à 99 € l'année : derniers jours** (prévu mardi 22/12, à reprendre le mardi 29/12 en version « dernières heures » avec un texte et un visuel nouveaux)
+  - Rappel factuel de l'échéance réelle du 31 décembre. Aucune fausse urgence, pas de « places limitées ».
+- [ ] **[guidance · offre de Noël] Logiciel pour tarologue et voyante à 99 € l'année : derniers jours** (prévu vendredi 25/12)
+
 - [x] **Instagram, TikTok, Google Meet et l'annuaire : votre visibilité simplifiée** (demandé le 09/10/2026, pour la vidéo du 10/10) — traité le 2026-10-10 (`youtube/2026-10-10_visibilite-instagram-tiktok-meet.mp4`)
   - Les praticiennes publient sur Instagram et TikTok pour trouver des clientes : montrer que c'est plus simple avec GuidPilot — le lien de leur page praticien GuidPilot dans la bio, les clientes qui viennent des réseaux réservent et paient directement, leurs liens Instagram / TikTok affichés sur leur page.
   - ⚠️ NE PAS dire que GuidPilot publie à leur place sur Instagram ou TikTok (la publication automatique n'existe pas en V1).
