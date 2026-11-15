@@ -84,7 +84,7 @@ def words(txt, size, top, pal, sid, color=None):
         else:
             out.append(f'<span class="w" id="{wid}">{H.escape(tok)}</span>'); ids.append(wid)
     html = f'<div class="kin" style="top:{top}px;font-size:{size}px;color:{color or fg}">{"".join(out)}</div>'
-    return html.replace(" ?", "&nbsp;?").replace(" !", "&nbsp;!"), ids, hls
+    return html.replace(" ?", "&nbsp;?").replace(" !", "&nbsp;!").replace("~", "&nbsp;"), ids, hls  # « ~ » = espace insécable (16/11/2026 : « 29~€ »)
 
 
 def kin_js(ids, hls, t, step=0.11, static=False):
