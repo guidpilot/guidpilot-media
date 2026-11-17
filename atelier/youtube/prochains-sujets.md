@@ -22,7 +22,7 @@ Règles de ce programme (elles priment sur « 2 conseils pour 1 tuto/promo » et
 
 Sujets :
 
-- [ ] **[thérapeutes · présentation] Logiciel pour thérapeute : comment gagner du temps sur vos rendez-vous, paiements et factures** (prévu mardi 17/11)
+- [x] **[thérapeutes · présentation] Logiciel pour thérapeute : comment gagner du temps sur vos rendez-vous, paiements et factures** (prévu mardi 17/11) — traité le 2026-11-17 (`youtube/2026-11-17_logiciel-therapeute-gagner-du-temps.mp4`, `gen_gagner_temps_therapeutes.py`, `miniature_gagner_temps.py`, musique `pilote`)
   - Sophrologue, praticienne Reiki, hypnothérapeute, réflexologue. Fil conducteur : une journée de cabinet, « avant » (messages pour caler une séance, paiement à vérifier, facture faite le soir, compte rendu envoyé par e-mail) puis « avec GuidPilot », tâche par tâche : la cliente réserve et règle seule, rappel par e-mail, notes privées, compte rendu dans son espace, facture numérotée automatique, demande d'avis.
   - Faire faire le calcul à la personne (« 20 minutes par jour, cela fait combien d'heures par mois ? ») sans annoncer de chiffre de gain garanti. Aucun vocabulaire médical.
   - Tags à inclure : logiciel thérapeute, logiciel sophrologue, logiciel Reiki, logiciel hypnothérapeute, gestion cabinet bien-être, prise de rendez-vous en ligne thérapeute, facturation thérapeute, gagner du temps thérapeute.
